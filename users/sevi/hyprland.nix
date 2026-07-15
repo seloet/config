@@ -78,9 +78,9 @@
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
         # Power menu via fsel in dmenu mode (pick Shutdown / Reboot / Suspend).
-        # fsel --dmenu is a TUI that needs a real PTY (raw mode); hyprland's
-        # exec gives it a pipe, so launch it inside a ghostty window.
-        "$mod, ESC, exec, ghostty -e ${./scripts/power-menu.sh}"
+        # fsel --dmenu is a TUI that needs a real PTY (raw mode); ghostty is
+        # broken in this session, so launch it inside foot instead.
+        "$mod, ESC, exec, foot -e ${./scripts/power-menu.sh}"
         ];
     };
   };

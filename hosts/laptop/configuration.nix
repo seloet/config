@@ -48,7 +48,7 @@ boot.loader.systemd-boot.enable = true;
     ntfs3g
     usbutils
     pciutils
-    ghostty
+    foot
   ];
   home-manager = {
     useGlobalPkgs = true;

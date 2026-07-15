@@ -51,9 +51,9 @@ in
               id = "custom_button";
               label = "🍅";
               tooltip = "Pomodoro — click to start a 25-min timer";
-              # Launcher: opens a live countdown in a ghostty window.
-              # (custom_button discards stdout, so the timer must run elsewhere.)
-              command = "ghostty -e ${./scripts/pomodoro.sh}";
+              # Launched in foot (ghostty is broken in this session: its GTK
+              # runtime crashes on spawn). Shows a live countdown window.
+              command = "foot -e ${./scripts/pomodoro.sh}";
             }
           ];
           end = [ "network" "bluetooth" "brightness" "battery" "session" ];
