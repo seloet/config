@@ -42,13 +42,14 @@ in
             "weather"
             {
               id = "clock";
-              # Time + ISO week-of-year shown together (v5 clock can't cycle on
-              # click). Click still opens the control-centre calendar.
-              format = "{:%H:%M  W%-V}";
+              # Plain strftime (no {:%...} wrapper — noctalia parses that as
+              # C++20 chrono and falls through to strftime with a literal,
+              # which renders blank). Shows time + ISO week-of-year.
+              format = "%H:%M  W%V";
             }
             {
               id = "custom_button";
-              glyph = "player-play";
+              label = "🍅";
               tooltip = "Pomodoro — click to start a 25-min timer";
               # Launcher: opens a live countdown in a ghostty window.
               # (custom_button discards stdout, so the timer must run elsewhere.)
