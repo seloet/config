@@ -54,7 +54,13 @@ boot.loader.systemd-boot.enable = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs; }; # Forwards flake inputs (like Noctalia) to user leaves
     users.severin ={
-    imports = [ ../../users/sevi/sevi.nix];
+    imports = [
+      ../../users/sevi/sevi.nix
+      # Noctalia's home-manager module — defines programs.noctalia (the option
+      # that generates + validates ~/.config/noctalia/config.toml). Without this
+      # import, programs.noctalia does not exist and the bar never applies.
+      inputs.noctalia.homeModules.default
+    ];
     home.homeDirectory = "/home/severin";
       home.username = "severin";
   };

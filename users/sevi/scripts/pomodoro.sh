@@ -1,59 +1,41 @@
 #!/usr/bin/env bash
-# Noctalia custom_button pomodoro timer.
-# No arguments  -> print current timer state (MM:SS + label). This output
-#                  becomes the widget's label (refreshed every interval).
-# "toggle"      -> start/pause the timer, then print the new state. Bound to
-#                  the widget's left-click (command), so clicking updates label.
-#
-# State lives in ~/.local/state/noctalia-pomodoro so each refresh sees a stable
-# value across invocations.
+# Pomodoro focus timer — launched from the noctalia bar (ghostty window).
+# 25 min work / 5 min break, looping. Press 'q' or Ctrl-C to quit.
+# Live MM:SS countdown is drawn in the terminal; a desktop notification fires
+# at each phase change.
 set -u
-
-STATE="${HOME}/.local/state/noctalia-pomodoro"
-mkdir -p "$(dirname "$STATE")"
 
 WORK=25
 BREAK=5
 
-now() { date +%s; }
-
-read_state() {
-  if [ -f "$STATE" ]; then printf '%s\n' "$(cat "$STATE")"; else echo "0 0 work"; fi
+notify() {
+  if command -v notify-send >/dev/null 2>&1; then
+    notify-send "$1" "$2" 2>/dev/null
+  fi
 }
 
-write_state() { printf '%s\n' "$1" > "$STATE"; }
-
-toggle() {
-  read -r running end mode < <(read_state)
-  if [ "$running" = "1" ]; then
-    rem=$(( end - $(now) )); [ "$rem" -lt 0 ] && rem=0
-    write_state "0 $rem $mode"
-  else
-    read -r _ val mode < <(read_state)
-    if [ "${val:-0}" -gt 0 ] 2>/dev/null; then
-      end=$(( $(now) + val ))
-    else
-      if [ "$mode" = "work" ]; then dur=$WORK; else dur=$BREAK; fi
-      end=$(( $(now) + dur * 60 ))
+phase() {
+  local name="$1" mins="$2"
+  local total mm ss rem ch=""
+  total=$(( mins * 60 ))
+  rem=$total
+  notify "Pomodoro" "$name — $mins min"
+  while [ "$rem" -gt 0 ]; do
+    mm=$(( rem / 60 )); ss=$(( rem % 60 ))
+    printf '\r\033[K%s %02d:%02d  (q to quit)' "$name" "$mm" "$ss"
+    sleep 1
+    rem=$(( rem - 1 ))
+    # quit on 'q' if a key was pressed (non-blocking)
+    if read -r -t 0 -n 1 ch 2>/dev/null; then
+      if [ "$ch" = "q" ]; then
+        printf '\nBye.\n'; exit 0
+      fi
     fi
-    write_state "1 $end $mode"
-  fi
+  done
+  printf '\n'
 }
 
-show() {
-  read -r running end mode < <(read_state)
-  if [ "$running" = "1" ]; then
-    rem=$(( end - $(now) )); [ "$rem" -lt 0 ] && rem=0
-  else
-    read -r _ val mode < <(read_state)
-    rem=${val:-0}
-  fi
-  mm=$(( rem / 60 )); ss=$(( rem % 60 ))
-  if [ "$mode" = "work" ]; then icon="🍅"; else icon="☕"; fi
-  printf '%s %02d:%02d\n' "$icon" "$mm" "$ss"
-}
-
-case "${1:-}" in
-  toggle) toggle ;;
-esac
-show
+while true; do
+  phase "🍅 Work" "$WORK"
+  phase "☕ Break" "$BREAK"
+done
