@@ -77,8 +77,9 @@
         ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
-        # Power menu via fsel in dmenu mode (pick Shutdown / Reboot / Suspend)
-        "$mod ESC, exec, sh -c 'printf \"%s\\n\" Shutdown Reboot Suspend | fsel --dmenu --no-exec | xargs -I{} sh -c \"case {} in Shutdown) systemctl poweroff;; Reboot) systemctl reboot;; Suspend) systemctl suspend;; esac\"'"
+        # Power menu via fsel in dmenu mode (pick Shutdown / Reboot / Suspend).
+        # Logic lives in scripts/power-menu.sh to keep quoting out of the bind.
+        "$mod, ESC, exec, ${./scripts/power-menu.sh}"
         ];
     };
   };
