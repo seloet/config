@@ -51,9 +51,10 @@ in
               id = "custom_button";
               label = "🍅";
               tooltip = "Pomodoro — click to start a 25-min timer";
-              # Launched in foot (ghostty is broken in this session: its GTK
-              # runtime crashes on spawn). Shows a live countdown window.
-              command = "foot -e ${./scripts/pomodoro.sh}";
+              # Launched in foot (absolute path, so it never depends on PATH
+              # inside noctalia's spawned /bin/sh). ghostty is broken in this
+              # session (GTK runtime crashes on spawn).
+              command = "${pkgs.foot}/bin/foot -e ${./scripts/pomodoro.sh}";
             }
           ];
           end = [ "network" "bluetooth" "brightness" "battery" "session" ];
