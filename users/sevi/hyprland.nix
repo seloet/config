@@ -66,14 +66,16 @@
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
 
-        # Audio (wpctl — already present on the system)
-        "XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        "XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        "XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        # Audio (wpctl — already present on the system).
+        # NOTE: hyprland bind syntax is MODS, KEY, DISPATCHER, ARGS. Media keys
+        # have no modifier, so the mods field is left empty (leading comma).
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
 
         # Brightness (brightnessctl — added to system packages)
-        "XF86MonBrightnessUp, exec, brightnessctl set +5%"
-        "XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
         # Power menu via fsel in dmenu mode (pick Shutdown / Reboot / Suspend)
         "$mod ESC, exec, sh -c 'printf \"%s\\n\" Shutdown Reboot Suspend | fsel --dmenu --no-exec | xargs -I{} sh -c \"case {} in Shutdown) systemctl poweroff;; Reboot) systemctl reboot;; Suspend) systemctl suspend;; esac\"'"
