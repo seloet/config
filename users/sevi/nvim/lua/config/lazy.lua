@@ -24,6 +24,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras.lang.python" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
+    { import = "lazyvim.plugins.extras.lang.tex" },
+    { import = "lazyvim.plugins.extras.lang.r" },
+    { import = "lazyvim.plugins.extras.test.core" },
     { import = "plugins" },
   },
   defaults = {
@@ -35,8 +40,7 @@ require("lazy").setup({
     enabled = true,
     notify = false,
   },
-  -- The Nix-managed ~/.config/nvim is read-only. Keep Lazy's mutable lockfile
-  -- in Neovim's state directory instead.
+  -- ~/.config/nvim is read-only (Nix); keep Lazy's lockfile in state dir
   lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json",
   performance = {
     rtp = {

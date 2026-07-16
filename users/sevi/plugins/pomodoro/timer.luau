@@ -12,7 +12,8 @@ end
 
 local function render()
     local state = running and "Running" or (remaining == DURATION and "Ready" or "Paused")
-    barWidget.setText(ICON .. " " .. formatTime(remaining))
+    local text = running and (ICON .. " " .. formatTime(remaining)) or ICON
+    barWidget.setText(text)
     barWidget.setTooltip("Pomodoro: " .. state .. "\nLeft click: start/pause\nRight click: reset")
 end
 

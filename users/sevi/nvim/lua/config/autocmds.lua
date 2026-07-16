@@ -1,2 +1,0 @@
--- Autocommands are loaded on the VeryLazy event.
--- Add custom autocommands here.

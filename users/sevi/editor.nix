@@ -6,19 +6,32 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    
-    # External toolchains required by Neovim to parse tree-sitter or compile runtimes
+    withRuby = false;
+    withPython3 = false;
+
+    # toolchains for nvim plugins / LSP
     extraPackages = with pkgs; [
-      ripgrep
-      fd
       gnumake
       gcc
-      git
-      tree-sitter
+      nodejs
+
+      python3
+      pyright
+      ruff
+
+      marksman
+      markdownlint-cli2
+      prettier
+      harper
+
+      texlab
+      texlive.combined.scheme-medium
+
+      (rWrapper.override { packages = with rPackages; [ languageserver ]; })
     ];
   };
 
-  # Instantly mounts the local nvim/ directory over ~/.config/nvim atomically
+  # atomically mounts ./nvim over ~/.config/nvim
   xdg.configFile."nvim" = {
     source = ./nvim;
     recursive = true;

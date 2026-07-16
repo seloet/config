@@ -1,10 +1,12 @@
 { pkgs, ... }:
 
 {
-  # Core Network Orchestration
   networking.networkmanager.enable = true;
+  services.tailscale.enable = true;
 
-  # Sound architecture (PipeWire ecosystem)
+  # local multi-service stacks (e.g. GroktoCrawl)
+  virtualisation.docker.enable = true;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -14,12 +16,11 @@
     jack.enable = true;
   };
 
-  # Hardware interface services
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.printing.enable = true;
 
-  # Power & Battery reporting infrastructure (Mandatory for Noctalia status metrics)
+  # battery metrics for Noctalia bar
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 }

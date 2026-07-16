@@ -3,8 +3,7 @@
 {
   stylix = {
     enable = true;
-    # Ensure this file exists in this directory, or change to a valid URL/Path
-    image = ./Wallpaper.png; 
+    image = ./Wallpaper.png;
     polarity = "dark";
     
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";

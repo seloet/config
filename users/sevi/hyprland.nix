@@ -1,87 +1,117 @@
 { ... }:
 
 {
+  programs.hyprlock.enable = true;
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 330;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+        {
+          timeout = 1800;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-    settings = {
-      monitor = [",1920x1080,auto,1"];
-      env = [ 
-      "XCURSOR_SIZE,24"
-      "HYPRCURSOR_SIZE,24"
-      ];
-      "exec-once" = [
-        "noctalia"
-      ];
-      input = { 
-      kb_layout = "ch";
-      };
-      layout = "master";
-      general = {
-        gaps_in = 0;
-        gaps_out = 0;
-        border_size = 0;
-      };
-      "$mod" = "SUPER";
-	windowrule = [
-  "match:class ^(fsel)$, float on"
-  "match:class ^(fsel)$, center on"
-  "match:class ^(fsel)$, size 850 500"
-];
-      # Format: width height (pixels or percentages like 50% 50%)
-      bind = [
-        "$mod, Return, exec, ghostty"
-        "$mod, V, exec, ghostty -e nvim"
-        "$mod, B, exec, brave"
-	"$mod SHIFT, F, exec, ghostty -e yazi"
-        "$mod, W, killactive"
-        "$mod, F, fullscreen"
-	"$mod, space, exec, ghostty --class=fsel -e fsel"
-        
-        # Navigation
-        "$mod, h, movefocus, l"
-        "$mod, l, movefocus, r"
-        "$mod, k, movefocus, u"
-        "$mod, j, movefocus, d"
+    configType = "lua";
 
-	"$mod, 1, workspace, 1"
-        "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3"
-        "$mod, 4, workspace, 4"
-        "$mod, 5, workspace, 5"
-        "$mod, 6, workspace, 6"
-        "$mod, 7, workspace, 7"
-        "$mod, 8, workspace, 8"
-        "$mod, 9, workspace, 9"
-        "$mod, 0, workspace, 10"
+    extraConfig = ''
+      local mod = "SUPER"
 
-	"$mod SHIFT, 1, movetoworkspace, 1"
-        "$mod SHIFT, 2, movetoworkspace, 2"
-        "$mod SHIFT, 3, movetoworkspace, 3"
-        "$mod SHIFT, 4, movetoworkspace, 4"
-        "$mod SHIFT, 5, movetoworkspace, 5"
-        "$mod SHIFT, 6, movetoworkspace, 6"
-        "$mod SHIFT, 7, movetoworkspace, 7"
-        "$mod SHIFT, 8, movetoworkspace, 8"
-        "$mod SHIFT, 9, movetoworkspace, 9"
-        "$mod SHIFT, 0, movetoworkspace, 10"
+      hl.monitor({
+        output = "",
+        mode = "1920x1080",
+        position = "auto",
+        scale = 1,
+      })
 
-        # Audio (wpctl — already present on the system).
-        # NOTE: hyprland bind syntax is MODS, KEY, DISPATCHER, ARGS. Media keys
-        # have no modifier, so the mods field is left empty (leading comma).
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      hl.env("XCURSOR_SIZE", "24")
+      hl.env("HYPRCURSOR_SIZE", "24")
 
-        # Brightness (brightnessctl — added to system packages)
-        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      hl.on("hyprland.start", function()
+        hl.exec_cmd("noctalia")
+      end)
 
-        # Power menu via fsel in dmenu mode (pick Shutdown / Reboot / Suspend).
-        # fsel --dmenu is a TUI that needs a real PTY (raw mode); ghostty is
-        # broken in this session, so launch it inside foot instead.
-        "$mod, ESC, exec, foot -e ${./scripts/power-menu.sh}"
-        ];
-    };
+      hl.config({
+        input = {
+          kb_layout = "ch",
+        },
+        general = {
+          gaps_in = 0,
+          gaps_out = 0,
+          border_size = 0,
+          layout = "master",
+        },
+      })
+
+      hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("ghostty --title=fsel -e fsel --detach"))
+
+      -- fsel can't be matched by Wayland class; identify it by window title.
+      hl.window_rule({
+        name = "fsel-window",
+        match = { title = "^(fsel)$" },
+        float = true,
+        size = "850 500",
+        center = true,
+      })
+
+      hl.window_rule({
+        name = "zathura-opacity",
+        match = { class = "^(org.pwmt.zathura)$" },
+        opacity = 0.85,
+      })
+
+      hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
+      hl.bind(mod .. " + V", hl.dsp.exec_cmd("ghostty -e nvim"))
+      hl.bind(mod .. " + B", hl.dsp.exec_cmd("brave"))
+      hl.bind(mod .. " + SHIFT + F", hl.dsp.exec_cmd("ghostty -e yazi"))
+      hl.bind(mod .. " + W", hl.dsp.window.close())
+      hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
+      hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("ghostty --title=fsel -e fsel --detach"))
+
+      hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
+      hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
+      hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
+      hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
+
+      for workspace = 1, 10 do
+        local key = workspace % 10
+        hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = workspace }))
+        hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
+      end
+
+      -- media keys work while locked and repeat while held
+      local mediaBindOptions = { locked = true, repeating = true }
+      hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), mediaBindOptions)
+      hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), mediaBindOptions)
+      hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), mediaBindOptions)
+      hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), mediaBindOptions)
+      hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), mediaBindOptions)
+
+      hl.bind(mod .. " + ESCAPE", hl.dsp.exec_cmd("foot --title=fsel --app-id=fsel ${./scripts/power-menu.sh}"))
+
+      hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+      hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+    '';
   };
 }
