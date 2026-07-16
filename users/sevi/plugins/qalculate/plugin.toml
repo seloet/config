@@ -1,0 +1,27 @@
+id = "sevi/qalculate"
+name = "Qalculate"
+version = "1.0.0"
+min_noctalia = "5.0.0"
+author = "sevi"
+license = "MIT"
+icon = "calculator"
+description = "Natural-language calculations powered by the local qalc-needle ONNX service"
+tags = ["calculator", "productivity"]
+
+[[setting]]
+key = "endpoint"
+type = "string"
+label_key = "settings.endpoint.label"
+description_key = "settings.endpoint.description"
+default = "http://127.0.0.1:8765/v1/calculate"
+
+[[widget]]
+id = "calculator"
+entry = "widget.luau"
+
+[[panel]]
+id = "panel"
+entry = "panel.luau"
+width = 460
+height = 330
+placement = "attached"

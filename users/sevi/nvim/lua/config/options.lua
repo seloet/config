@@ -1,0 +1,3 @@
+-- Options are loaded before lazy.nvim starts.
+-- Add custom options here, for example:
+-- vim.opt.relativenumber = true

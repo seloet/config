@@ -1,0 +1,11 @@
+id = "sevi/pomodoro"
+name = "Pomodoro"
+version = "1.0.0"
+min_noctalia = "5.0.0"
+author = "sevi"
+license = "MIT"
+description = "A compact Pomodoro timer for the Noctalia bar"
+
+[[widget]]
+id = "timer"
+entry = "timer.luau"

@@ -1,0 +1,5 @@
+# Nix build output symlink — points into /nix/store, local-only
+/result
+
+# Internal Hermes agent artifacts (plans, scratch)
+/.hermes/

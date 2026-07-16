@@ -1,0 +1,5 @@
+{
+  "settings.endpoint.label": "Qalculate service endpoint",
+  "settings.endpoint.description": "HTTP endpoint exposed by the local qalc-needle ONNX server."
+}
+

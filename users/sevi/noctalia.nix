@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ ... }:
 
 # Noctalia v5 config is TOML read from ~/.config/noctalia/config.toml.
 # The supported way to provide it is via programs.noctalia.settings (attrset),
@@ -10,13 +10,9 @@
 #     are NOT valid in v5 and are silently ignored — that was the gap bug.
 #   * The built-in `clock` widget only takes a strftime `format`; clicking it
 #     opens the control-centre calendar. There is NO click-to-cycle support.
-#   * The `custom_button` widget runs its `command` via runAsync and DISCARDS
-#     stdout — so it can launch things but can never display command output.
-#     (No v5 widget renders dynamic shell output.) Hence pomodoro is a launcher.
+#   * Dynamic widgets belong in Noctalia plugins. The local Pomodoro plugin is
+#     sourced declaratively below and renders its countdown directly in the bar.
 
-let
-  bash = "${pkgs.bash}/bin/bash";
-in
 {
   programs.noctalia = {
     enable = true;
@@ -37,28 +33,40 @@ in
           auto_hide = false;
           reserve_space = true;
 
-          start = [ "workspaces" ];
-          center = [
-            "weather"
-            {
-              id = "clock";
-              # Plain strftime (no {:%...} wrapper — noctalia parses that as
-              # C++20 chrono and falls through to strftime with a literal,
-              # which renders blank). Shows time + ISO week-of-year.
-              format = "%H:%M  W%V";
-            }
-            {
-              id = "custom_button";
-              label = "🍅";
-              tooltip = "Pomodoro — click to start a 25-min timer";
-              # Launched in foot (absolute path, so it never depends on PATH
-              # inside noctalia's spawned /bin/sh). ghostty is broken in this
-              # session (GTK runtime crashes on spawn).
-              command = "${pkgs.foot}/bin/foot -e ${./scripts/pomodoro.sh}";
-            }
-          ];
+          start = [ "pomodoro" "workspaces" ];
+          # Bar lanes are string lists. Widget settings belong under
+          # [widget.<name>]; inline tables in this list are ignored by v5.
+          center = [ "weather" "todo" "clock" ];
           end = [ "network" "bluetooth" "brightness" "battery" "session" ];
         };
+      };
+
+      widget = {
+        clock = {
+          # Noctalia's clock formatter expects a chrono-style replacement field.
+          format = "{:%H:%M  W%V}";
+        };
+
+        pomodoro = {
+          type = "sevi/pomodoro:timer";
+        };
+
+        todo = {
+          type = "sevi/todo:open";
+        };
+      };
+
+      plugins = {
+        enabled = [ "sevi/pomodoro" "sevi/todo" ];
+        source = [
+          {
+            name = "sevi-config";
+            kind = "path";
+            location = "${./plugins}";
+            auto_update = false;
+            enabled = true;
+          }
+        ];
       };
     };
   };
