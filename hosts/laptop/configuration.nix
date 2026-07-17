@@ -6,6 +6,7 @@
     ../../modules/core/services.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/themes/stylix.nix
+    ../../modules/google-colab-cli.nix
   ];
 
   modules.desktop.hyprland.enable = true;

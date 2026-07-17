@@ -13,6 +13,12 @@
     extraPackages = with pkgs; [
       gnumake
       gcc
+      # Nix-built tree-sitter CLI so nvim-treesitter can compile parsers
+      # natively. The prebuilt binary it tries to download is a generic
+      # glibc ELF that NixOS refuses to execute ("Could not start
+      # dynamically linked executable"), which is what caused the
+      # treesitter errors on every startup.
+      tree-sitter
       nodejs
 
       python3
