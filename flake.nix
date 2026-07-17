@@ -16,6 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
@@ -26,6 +27,17 @@
         ./hosts/laptop/configuration.nix
         home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix
+      ];
+    };
+
+    nixosConfigurations.surface = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/surface/configuration.nix
+        home-manager.nixosModules.home-manager
+        stylix.nixosModules.stylix
+        inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
       ];
     };
   };

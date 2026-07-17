@@ -25,7 +25,7 @@
       harper
 
       texlab
-      texlive.combined.scheme-medium
+      texliveSmall
 
       (rWrapper.override { packages = with rPackages; [ languageserver ]; })
     ];
