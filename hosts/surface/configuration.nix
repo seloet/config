@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 # Surface host: lean Hyprland profile reusing the laptop's shared modules but
 # with the Surface Home Manager leaf (surface.nix) and Surface-specific
@@ -6,6 +6,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/core/base.nix
 
     # Shared system modules reused from the laptop layout.
     # desktop/hyprland provides the greetd login, xdg-portal, brightnessctl
@@ -25,32 +26,7 @@
   networking.hostName = "surface";
   networking.networkmanager.enable = true;
 
-  console.keyMap = "sg";
-  time.timeZone = "Europe/Zurich";
-
-  boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "systemd.show_status=false" ];
-  boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # FUSE helper for rclone/GDrive FUSE mount (gdrive.nix depends on it).
-  programs.fuse.enable = true;
-
-  users.users.severin = {
-    isNormalUser = true;
-    description = "Severin";
-    group = "severin";
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "video"
-      "audio"
-    ];
-    shell = pkgs.zsh;
-  };
-  users.groups.severin = {};
-  programs.zsh.enable = true;
 
   home-manager = {
     useGlobalPkgs = true;
@@ -63,11 +39,6 @@
     users.severin = import ../../users/sevi/surface.nix;
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   security.rtkit.enable = true;
 
   services.pipewire = {
@@ -77,7 +48,6 @@
     pulse.enable = true;
   };
 
-  hardware.graphics.enable = true;
   # Surface Pro 1796 = Surface Pro (2017) = Kaby Lake (Gen 7.5).
   # Use the i965/intel-vaapi-driver, NOT intel-media-driver (that targets
   # Gen 8+/newer). Re-evaluate only if the exact CPU generation differs.

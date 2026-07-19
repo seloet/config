@@ -3,9 +3,8 @@
 {
   imports = [
     ./apps-surface.nix
-
-    # rclone is installed through apps-surface.nix; configure its Org: remote
-    # manually on the Surface before enabling the declarative mount service.
+    # The service stays inactive until rclone.conf exists.
+    ./gdrive.nix
     ./terminal.nix
     ./file-manager.nix
     ./zathura.nix

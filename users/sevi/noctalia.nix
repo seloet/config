@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 # Noctalia v5 reads TOML from ~/.config/noctalia/config.toml; provided here via
 # programs.noctalia.settings (serialised to [bar.X] / [<widget>] tables).

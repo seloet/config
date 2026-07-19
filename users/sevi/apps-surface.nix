@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     brave
-    mpv
     micro
 
     # Keep Tuxedo as it currently exists in the configuration.
@@ -12,10 +11,8 @@
     # Required by the existing Google Drive setup.
     rclone
 
-    brightnessctl
     playerctl
     pavucontrol
-    wl-clipboard
 
     # Useful for checking video acceleration.
     libva-utils

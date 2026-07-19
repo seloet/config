@@ -32,12 +32,12 @@ require("lazy").setup({
     { import = "plugins" },
   },
   defaults = {
-    lazy = false,
+    lazy = true,
     version = false,
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = {
-    enabled = true,
+    enabled = false,
     notify = false,
   },
   -- ~/.config/nvim is read-only (Nix); keep Lazy's lockfile in state dir

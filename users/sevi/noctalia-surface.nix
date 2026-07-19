@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 # Reduced Noctalia bar for the Surface. Kept: todo plugin, clock, battery,
 # network, bluetooth, volume, brightness, session. Removed: weather + pomodoro

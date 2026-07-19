@@ -19,6 +19,7 @@
       # in the user session; Restart handles the offline case.
       After = [ "network-online.target" ];
       Wants = [ "network-online.target" ];
+      ConditionPathExists = "%h/.config/rclone/rclone.conf";
     };
 
     Service = {
@@ -29,14 +30,15 @@
         "${pkgs.rclone}/bin/rclone mount Org: %h/gdrive"
         "--vfs-cache-mode full"
         "--cache-dir %C/rclone"
+        "--vfs-cache-max-size 10G"
+        "--vfs-cache-max-age 7d"
         "--dir-cache-time 1h"
         "--poll-interval 15s"
         "--log-level INFO"
-        "--log-file %C/rclone/gdrive.log"
       ];
       # rclone exits non-zero if Drive is unreachable at start; retry.
       Restart = "on-failure";
-      RestartSec = 10;
+      RestartSec = 30;
     };
 
     Install = {

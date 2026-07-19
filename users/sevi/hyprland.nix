@@ -39,10 +39,18 @@
       local mod = "SUPER"
 
       hl.monitor({
-        output = "",
+        output = "eDP-1",
         mode = "1920x1080",
         position = "auto",
         scale = 1,
+      })
+
+      hl.monitor({
+        output = "HDMI-A-1",
+        mode = "1920x1080",
+        position = "-1080x0",
+        scale = 1,
+        transform = 1,
       })
 
       hl.env("XCURSOR_SIZE", "24")
@@ -60,11 +68,16 @@
           gaps_in = 0,
           gaps_out = 0,
           border_size = 0,
-          layout = "master",
+          layout = "dwindle",
+        },
+
+        dwindle = {
+          force_split = 0,
+          preserve_split = false,
+          smart_split = false,
+          split_width_multiplier = 1.0,
         },
       })
-
-      hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("ghostty --title=fsel -e fsel --detach"))
 
       -- fsel can't be matched by Wayland class; identify it by window title.
       hl.window_rule({
