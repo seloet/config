@@ -9,6 +9,15 @@
     withRuby = false;
     withPython3 = false;
 
+    # Neorg's prebuilt norg parser needs libstdc++; expose the Nix runtime
+    # library to Neovim and to its plugin-manager subprocesses.
+    extraWrapperArgs = [
+      "--prefix"
+      "LD_LIBRARY_PATH"
+      ":"
+      "${pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ]}"
+    ];
+
     # toolchains for nvim plugins / LSP
     extraPackages = with pkgs; [
       gnumake
@@ -20,6 +29,9 @@
       # treesitter errors on every startup.
       tree-sitter
       nodejs
+      # Neorg's rockspec dependencies require the Lua 5.1 ABI used by Neovim.
+      lua5_1
+      lua51Packages.luarocks
 
       python3
       pyright

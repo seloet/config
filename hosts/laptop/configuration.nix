@@ -27,6 +27,17 @@
 
   networking.hostName = "laptop";
 
+  # Keep the API socket ready, but start dockerd only on the first Docker
+  # command instead of making every boot wait for the daemon.
+  virtualisation.docker.enableOnBoot = false;
+
+  # Prefer fast compressed RAM to the NVMe swap partition under memory pressure.
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 25;
+  };
+
   users.users.severin.extraGroups = [ "docker" ];
   environment.systemPackages = with pkgs; [
     curl

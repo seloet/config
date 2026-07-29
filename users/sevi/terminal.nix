@@ -4,6 +4,9 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    # Reuse the existing completion dump instead of auditing every completion
+    # directory whenever a terminal opens.
+    completionInit = "autoload -U compinit && compinit -C";
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
   };
