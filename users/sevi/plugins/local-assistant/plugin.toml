@@ -1,0 +1,11 @@
+id = "sevi/local-assistant"
+name = "LocalAssistant"
+version = "1.0.0"
+min_noctalia = "5.0.0"
+author = "sevi"
+license = "MIT"
+description = "Start or stop the LocalAssistant user service from the Noctalia bar"
+
+[[widget]]
+id = "toggle"
+entry = "toggle.luau"

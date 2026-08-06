@@ -40,9 +40,9 @@
 
       hl.monitor({
         output = "eDP-1",
-        mode = "1920x1080",
+        mode = "preferred",
         position = "auto",
-        scale = 1,
+        scale = 1.5,
       })
 
       hl.monitor({
@@ -58,6 +58,7 @@
 
       hl.on("hyprland.start", function()
         hl.exec_cmd("noctalia")
+        hl.exec_cmd("kdeconnectd")
       end)
 
       hl.config({
@@ -69,6 +70,11 @@
           gaps_out = 0,
           border_size = 0,
           layout = "dwindle",
+        },
+
+        misc = {
+          -- `keep-awake` turns DPMS off directly; a key wakes the displays.
+          key_press_enables_dpms = true,
         },
 
         dwindle = {

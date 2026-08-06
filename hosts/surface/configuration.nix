@@ -96,5 +96,10 @@
   services.avahi.enable = false;
   services.openssh.enable = false;
 
+  # Add mosh to system packages on the Surface host.
+  environment.systemPackages = with pkgs; [
+    mosh
+  ];
+
   system.stateVersion = "26.11";
 }

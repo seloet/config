@@ -79,6 +79,8 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         force_default_wallpaper = 0;
+        # `keep-awake` turns DPMS off directly; a key wakes the display.
+        key_press_enables_dpms = true;
       };
 
       input = {

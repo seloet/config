@@ -3,7 +3,7 @@ local ICON = "" -- Nerd Fonts: nf-fa-list (U+F0CA)
 local TODO_PATH = "/home/severin/gdrive/todo.txt"
 
 local function render()
-  barWidget.setText(ICON .. " TODO")
+  barWidget.setText(ICON)
   barWidget.setTooltip("Click to open todo.txt in tuxedo\n" .. TODO_PATH)
 end
 

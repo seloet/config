@@ -10,6 +10,7 @@
     ./editor.nix
     ./noctalia.nix
     ./hyprland.nix
+    ./cliphist.nix
     ./zathura.nix
   ];
 
@@ -21,8 +22,15 @@
 
   home.pointerCursor.enable = true;
 
-  # ad-hoc scripts like keep-awake survive `nixos-rebuild switch`
+  # User scripts remain directly runnable from ~/.local/bin.
   home.sessionPath = [ "$HOME/.local/bin" ];
+
+  home.file.".local/bin/keep-awake" = {
+    source = ./scripts/keep-awake;
+    executable = true;
+    # Replace the former unmanaged script on the first activation.
+    force = true;
+  };
 
   services.local-assistant = {
     enable = true;

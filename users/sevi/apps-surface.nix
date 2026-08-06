@@ -16,5 +16,10 @@
 
     # Useful for checking video acceleration.
     libva-utils
+
+    yt-dlp
+    qbittorrent
+    vlc
+    cliamp
   ];
 }

@@ -15,5 +15,12 @@
     codex
     tuxedo
     rclone
+    llama-cpp
+
+    yt-dlp
+    qbittorrent
+    vlc
+    cliamp
+    kaggle
   ];
 }

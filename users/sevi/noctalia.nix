@@ -7,7 +7,8 @@
 #     silently ignored in v5 — that was the original gap bug.
 #   * clock only takes a strftime `format`; clicking it opens the calendar.
 #     No click-to-cycle support.
-#   * Dynamic widgets live in plugins (pomodoro/todo below render in the bar).
+#   * Dynamic widgets live in plugins (pomodoro/todo/LocalAssistant below render
+#     in the bar).
 
 {
   programs.noctalia = {
@@ -31,7 +32,7 @@
 
           start = [ "pomodoro" "workspaces" ];
           # lanes are string lists; widget settings go under [widget.<name>]
-          center = [ "weather" "todo" "clock" ];
+          center = [ "weather" "todo" "local-assistant" "clock" ];
           end = [ "network" "bluetooth" "brightness" "battery" "session" ];
         };
       };
@@ -48,11 +49,17 @@
 
         todo = {
           type = "sevi/todo:open";
+          scale = 1.2;
+        };
+
+        local-assistant = {
+          type = "sevi/local-assistant:toggle";
+          scale = 1.2;
         };
       };
 
       plugins = {
-        enabled = [ "sevi/pomodoro" "sevi/todo" ];
+        enabled = [ "sevi/pomodoro" "sevi/todo" "sevi/local-assistant" ];
         source = [
           {
             name = "sevi-config";

@@ -1,0 +1,130 @@
+#!/usr/bin/env bash
+# Keep the machine available for remote work without changing its normal idle
+# locking or display-blanking policy.
+
+set -euo pipefail
+
+duration_minutes=0
+blank_display=false
+
+show_help() {
+  cat <<'EOF'
+Usage: keep-awake [-t MINUTES] [--screen]
+
+Block suspend and lid-close handling until interrupted.
+
+Options:
+  -t MINUTES  Stop inhibiting sleep after this many minutes
+  --screen    Lock the session and turn off the internal display backlight;
+              restore its previous brightness after unlocking
+  -h, --help  Show this help
+EOF
+}
+
+die() {
+  printf 'keep-awake: %s\n' "$*" >&2
+  exit 1
+}
+
+while (( $# > 0 )); do
+  case "$1" in
+    -t)
+      (( $# >= 2 )) || die "option -t requires a minute argument"
+      duration_minutes="$2"
+      shift 2
+      ;;
+    -t?*)
+      duration_minutes="${1#-t}"
+      shift
+      ;;
+    --screen)
+      blank_display=true
+      shift
+      ;;
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    *)
+      die "unknown option: $1 (use --help for help)"
+      ;;
+  esac
+done
+
+[[ "$duration_minutes" =~ ^[0-9]+$ ]] ||
+  die "duration must be a whole number of minutes"
+# Seventeen decimal digits still fit after conversion to seconds in Bash's
+# signed 64-bit arithmetic. Longer inputs are not useful in practice.
+(( ${#duration_minutes} <= 17 )) || die "duration is too large"
+
+command -v systemd-inhibit >/dev/null 2>&1 ||
+  die "systemd-inhibit is not available"
+command -v flock >/dev/null 2>&1 || die "flock is not available"
+
+# Keep the lock descriptor open across exec. Unlike matching process command
+# lines with pgrep, this cannot mistake an unrelated command for this script.
+lock_file="${XDG_RUNTIME_DIR:-/tmp}/keep-awake-${UID}.lock"
+exec {lock_fd}>"$lock_file"
+flock -n "$lock_fd" || die "already running; sleep is already blocked"
+
+blank_screen() {
+  local brightnessctl_path lock_pid saved_brightness
+  local attempt
+
+  brightnessctl_path="$(command -v brightnessctl 2>/dev/null || true)"
+  [[ -n "$brightnessctl_path" ]] ||
+    die "--screen requires brightnessctl"
+
+  loginctl lock-session >/dev/null 2>&1 ||
+    die "could not lock the session; refusing to blank the display"
+
+  # Wait until the lock surface exists so the display is never blanked while
+  # the desktop is still unlocked.
+  lock_pid=""
+  for (( attempt = 0; attempt < 50; attempt++ )); do
+    lock_pid="$(pgrep -n -x hyprlock 2>/dev/null || true)"
+    [[ -n "$lock_pid" ]] && break
+    sleep 0.1
+  done
+  [[ -n "$lock_pid" ]] ||
+    die "hyprlock did not start; refusing to blank the display"
+
+  saved_brightness="$("$brightnessctl_path" get)" ||
+    die "could not read the current display brightness"
+  "$brightnessctl_path" set 0 >/dev/null ||
+    die "could not turn off the display backlight"
+
+  # The helper must outlive this script: a timed inhibitor may end while the
+  # screen is still locked. Restore the exact previous raw brightness value.
+  (
+    exec {lock_fd}>&-
+    trap '' HUP INT
+    while kill -0 "$lock_pid" 2>/dev/null; do
+      sleep 0.5
+    done
+    "$brightnessctl_path" set "$saved_brightness" >/dev/null 2>&1 || true
+  ) >/dev/null 2>&1 &
+  disown 2>/dev/null || true
+}
+
+if [[ "$blank_display" == true ]]; then
+  echo "Locking and blanking the display; unlock to restore its brightness."
+  blank_screen
+fi
+
+echo "Keeping awake until stopped with Ctrl-C or by closing this pane."
+echo "Tailscale IP: $(tailscale ip -4 2>/dev/null || echo '(tailscale not running)')"
+
+sleep_duration=infinity
+if (( 10#$duration_minutes > 0 )); then
+  sleep_duration="$((10#$duration_minutes * 60))"
+  echo "The inhibitor will stop after ${duration_minutes} minutes."
+fi
+
+# Let systemd-inhibit own the lifetime directly. Using a finite sleep avoids a
+# timeout wrapper that can leave either the inhibitor or its child orphaned.
+exec systemd-inhibit \
+  --what=sleep:handle-lid-switch \
+  --why="remote coding session (keep-awake)" \
+  --mode=block \
+  sleep "$sleep_duration"

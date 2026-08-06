@@ -33,6 +33,7 @@
     environment.systemPackages = with pkgs; [
       hyprpolkitagent
       wl-clipboard
+      cliphist
       brightnessctl        # screen-brightness backend for Noctalia + media keys
     ];
   };

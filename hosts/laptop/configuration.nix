@@ -44,10 +44,14 @@
     wget
     docker-compose
     (python3.withPackages (ps: [ ps.requests ]))
+    modal
     ntfs3g
     usbutils
     pciutils
     foot
+    mosh
+    kdePackages.kdeconnect-kde
+    inputs.herdr.packages.${pkgs.system}.default
   ];
   home-manager = {
     useGlobalPkgs = true;
@@ -56,6 +60,7 @@
     users.severin = {
       imports = [
         ../../users/sevi/sevi.nix
+        ../../users/sevi/moshi.nix
         # Defines programs.noctalia; without it the bar never applies.
         inputs.noctalia.homeModules.default
       ];
