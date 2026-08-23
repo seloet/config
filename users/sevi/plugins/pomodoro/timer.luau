@@ -1,7 +1,9 @@
-local DURATION = 25 * 60
+local FOCUS_DURATION = POMODORO_FOCUS_SECONDS or (25 * 60)
+local BREAK_DURATION = POMODORO_BREAK_SECONDS or (5 * 60)
 local ICON = "" -- Nerd Fonts: pom-pomodoro_ticking (U+E003)
 
-local remaining = DURATION
+local phase = "focus"
+local remaining = FOCUS_DURATION
 local running = false
 
 local function formatTime(seconds)
@@ -11,34 +13,39 @@ local function formatTime(seconds)
 end
 
 local function render()
-    local state = running and "Running" or (remaining == DURATION and "Ready" or "Paused")
-    local text = running and (ICON .. " " .. formatTime(remaining)) or ICON
-    barWidget.setText(text)
-    barWidget.setTooltip("Pomodoro: " .. state .. "\nLeft click: start/pause\nRight click: reset")
+    local phaseName = phase == "focus" and "Focus" or "Break"
+    local state = running and "running" or "paused"
+    barWidget.setText(ICON .. " " .. formatTime(remaining))
+    barWidget.setTooltip(phaseName .. ": " .. state .. "\nLeft click: pause/resume\nRight click: reset focus")
 end
 
 function update()
     if running and remaining > 0 then
-        remaining -= 1
+        remaining = remaining - 1
         if remaining == 0 then
-            running = false
-            noctalia.notify("Pomodoro", "Focus session complete")
+            if phase == "focus" then
+                noctalia.notify("Pomodoro", "Focus complete — break started")
+                phase = "break"
+                remaining = BREAK_DURATION
+            else
+                noctalia.notify("Pomodoro", "Break complete — focus started")
+                phase = "focus"
+                remaining = FOCUS_DURATION
+            end
         end
     end
     render()
 end
 
 function onClick()
-    if remaining == 0 then
-        remaining = DURATION
-    end
     running = not running
     render()
 end
 
 function onRightClick()
     running = false
-    remaining = DURATION
+    phase = "focus"
+    remaining = FOCUS_DURATION
     render()
 end
 

@@ -20,7 +20,4 @@
   services.blueman.enable = true;
   services.printing.enable = true;
 
-  # battery metrics for Noctalia bar
-  services.power-profiles-daemon.enable = true;
-  services.upower.enable = true;
 }

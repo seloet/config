@@ -1,4 +1,4 @@
-{ ... }:
+{ config, lib, ... }:
 
 # Noctalia v5 reads TOML from ~/.config/noctalia/config.toml; provided here via
 # programs.noctalia.settings (serialised to [bar.X] / [<widget>] tables).
@@ -19,8 +19,8 @@
         main = {
           position = "top";
           thickness = 34;
-          margin_ends = 0;     # horizontal margin -> full width
-          margin_edge = 0;     # vertical margin from screen edge
+          margin_ends = 0; # horizontal margin -> full width
+          margin_edge = 0; # vertical margin from screen edge
           padding = 14;
           widget_spacing = 6;
           radius = 0;
@@ -30,10 +30,26 @@
           auto_hide = false;
           reserve_space = true;
 
-          start = [ "pomodoro" "workspaces" ];
+          start = [
+            "pomodoro"
+            "workspaces"
+          ];
           # lanes are string lists; widget settings go under [widget.<name>]
-          center = [ "weather" "todo" "local-assistant" "clock" ];
-          end = [ "network" "bluetooth" "brightness" "battery" "session" ];
+          center = [
+            "weather"
+            "todo"
+            "local-assistant"
+            "clock"
+          ];
+          end = [
+            "network"
+            "bluetooth"
+          ]
+          ++ lib.optionals config.workstation.portableWidgets [
+            "brightness"
+            "battery"
+          ]
+          ++ [ "session" ];
         };
       };
 
@@ -59,7 +75,11 @@
       };
 
       plugins = {
-        enabled = [ "sevi/pomodoro" "sevi/todo" "sevi/local-assistant" ];
+        enabled = [
+          "sevi/pomodoro"
+          "sevi/todo"
+          "sevi/local-assistant"
+        ];
         source = [
           {
             name = "sevi-config";

@@ -9,7 +9,7 @@
       manager.show_hidden = true;
       opener.zathura = [
         {
-          run = "zathura %s1";
+          run = ''zathura "$@"'';
           desc = "Zathura";
           for = "linux";
           orphan = true;
@@ -17,7 +17,7 @@
       ];
       opener.glow = [
         {
-          run = "glow %s1";
+          run = ''glow "$1"'';
           desc = "Glow";
           for = "linux";
           block = true;
@@ -25,13 +25,17 @@
       ];
       opener.nvim = [
         {
-          run = "nvim %s1";
+          run = ''nvim "$@"'';
           desc = "Neovim";
           for = "linux";
           block = true;
         }
       ];
       open.prepend_rules = [
+        {
+          url = "*.md";
+          use = "glow";
+        }
         {
           mime = "application/pdf";
           use = "zathura";
@@ -45,10 +49,6 @@
           use = "nvim";
         }
         {
-          url = "*.md";
-          use = "glow";
-        }
-        {
           url = "*.nix";
           use = "nvim";
         }
@@ -56,17 +56,22 @@
     };
   };
 
-  # Glow is a terminal application and does not ship a desktop entry.
+  # Launch Glow in its own fully opaque terminal so desktop launchers and MIME
+  # handlers do not depend on their generic Terminal=true implementation.
   xdg.desktopEntries.glow = {
     name = "Glow";
     genericName = "Markdown Viewer";
     comment = "Render Markdown in a terminal";
-    exec = "${pkgs.glow}/bin/glow %f";
-    terminal = true;
+    exec = "${pkgs.ghostty}/bin/ghostty -o background-opacity=1 -e ${pkgs.glow}/bin/glow %f";
+    terminal = false;
     type = "Application";
     mimeType = [ "text/markdown" ];
     categories = [ "Utility" ];
   };
+
+  xdg.configFile."fsel/config.toml".text = ''
+    terminal_launcher = "ghostty -e"
+  '';
 
   xdg.mimeApps = {
     enable = true;

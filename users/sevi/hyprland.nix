@@ -1,5 +1,16 @@
-{ ... }:
+{ config, lib, ... }:
 
+let
+  monitorConfig = lib.concatMapStringsSep "\n" (monitor: ''
+    hl.monitor({
+      output = ${builtins.toJSON monitor.output},
+      mode = ${builtins.toJSON monitor.mode},
+      position = ${builtins.toJSON monitor.position},
+      scale = ${toString monitor.scale},
+      ${lib.optionalString (monitor.transform != null) "transform = ${toString monitor.transform},"}
+    })
+  '') config.workstation.monitors;
+in
 {
   programs.hyprlock.enable = true;
 
@@ -22,6 +33,8 @@
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
+      ]
+      ++ lib.optionals config.workstation.automaticSuspend [
         {
           timeout = 1800;
           on-timeout = "systemctl suspend";
@@ -38,20 +51,7 @@
     extraConfig = ''
       local mod = "SUPER"
 
-      hl.monitor({
-        output = "eDP-1",
-        mode = "preferred",
-        position = "auto",
-        scale = 1.5,
-      })
-
-      hl.monitor({
-        output = "HDMI-A-1",
-        mode = "1920x1080",
-        position = "-1080x0",
-        scale = 1,
-        transform = 1,
-      })
+      ${monitorConfig}
 
       hl.env("XCURSOR_SIZE", "24")
       hl.env("HYPRCURSOR_SIZE", "24")
@@ -94,16 +94,11 @@
         center = true,
       })
 
-      hl.window_rule({
-        name = "zathura-opacity",
-        match = { class = "^(org.pwmt.zathura)$" },
-        opacity = 0.85,
-      })
-
       hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
       hl.bind(mod .. " + V", hl.dsp.exec_cmd("ghostty -e nvim"))
       hl.bind(mod .. " + B", hl.dsp.exec_cmd("brave"))
       hl.bind(mod .. " + SHIFT + F", hl.dsp.exec_cmd("ghostty -e yazi"))
+      hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd("wallpaper-cycle --next"))
       hl.bind(mod .. " + W", hl.dsp.window.close())
       hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
       hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("ghostty --title=fsel -e fsel --detach"))

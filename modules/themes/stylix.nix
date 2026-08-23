@@ -3,9 +3,9 @@
 {
   stylix = {
     enable = true;
-    image = ./Wallpaper.png;
+    image = ./wallpapers/Wallpaper.png;
     polarity = "dark";
-    
+
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
 
     cursor = {

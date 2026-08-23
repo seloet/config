@@ -1,72 +1,34 @@
-{ pkgs, inputs, ... }:
+{ ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/core/base.nix
-    ../../modules/core/services.nix
-    ../../modules/desktop/hyprland.nix
-    ../../modules/themes/stylix.nix
-    ../../modules/google-colab-cli.nix
+    ../../modules/profiles/workstation.nix
   ];
-
-  modules.desktop.hyprland.enable = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix = {
-    optimise = {
-      automatic = true;
-      dates = [ "weekly" ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-  };
 
   networking.hostName = "laptop";
 
-  # Keep the API socket ready, but start dockerd only on the first Docker
-  # command instead of making every boot wait for the daemon.
-  virtualisation.docker.enableOnBoot = false;
-
-  # Prefer fast compressed RAM to the NVMe swap partition under memory pressure.
-  zramSwap = {
+  profiles.workstation = {
     enable = true;
-    algorithm = "zstd";
-    memoryPercent = 25;
+    portableWidgets = true;
+    automaticSuspend = true;
+    llmBackend = "cpu";
+    monitors = [
+      {
+        output = "eDP-1";
+        mode = "preferred";
+        position = "auto";
+        scale = 1.5;
+      }
+      {
+        output = "HDMI-A-1";
+        mode = "1920x1080";
+        position = "-1080x0";
+        scale = 1;
+        transform = 1;
+      }
+    ];
   };
 
-  users.users.severin.extraGroups = [ "docker" ];
-  environment.systemPackages = with pkgs; [
-    curl
-    wget
-    docker-compose
-    (python3.withPackages (ps: [ ps.requests ]))
-    modal
-    ntfs3g
-    usbutils
-    pciutils
-    foot
-    mosh
-    kdePackages.kdeconnect-kde
-    inputs.herdr.packages.${pkgs.system}.default
-  ];
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; }; # forwards flake inputs (Noctalia) to user leaves
-    users.severin = {
-      imports = [
-        ../../users/sevi/sevi.nix
-        ../../users/sevi/moshi.nix
-        # Defines programs.noctalia; without it the bar never applies.
-        inputs.noctalia.homeModules.default
-      ];
-      home.homeDirectory = "/home/severin";
-      home.username = "severin";
-    };
-  };
   system.stateVersion = "23.11";
 }
