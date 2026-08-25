@@ -10,6 +10,8 @@
 
   profiles.workstation = {
     enable = true;
+    user = "sevi";
+    keyboard = "us";
     portableWidgets = false;
     automaticSuspend = false;
     llmBackend = "cuda";
@@ -25,10 +27,11 @@
         mode = "1920x1080@60";
         position = "auto-right";
         scale = 1;
-        transform = 1;
+        transform = 3;
       }
     ];
   };
 
   system.stateVersion = "26.05";
+  console.keyMap = "us";
 }

@@ -34,6 +34,7 @@
 
     extraSpecialArgs = {
       inherit inputs;
+      user = "severin";
     };
 
     users.severin = import ../../users/sevi/surface.nix;

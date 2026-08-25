@@ -20,6 +20,16 @@ in
 
   options.profiles.workstation = {
     enable = lib.mkEnableOption "full workstation profile";
+    user = lib.mkOption {
+      description = "Primary user account name (forwarded from modules.core.user).";
+      type = lib.types.str;
+      default = "severin";
+    };
+    keyboard = lib.mkOption {
+      description = "Hyprland keyboard layout for this host.";
+      type = lib.types.str;
+      default = "ch";
+    };
     monitors = lib.mkOption {
       description = "Monitor definitions forwarded to the user's Hyprland configuration.";
       default = [ ];
@@ -66,6 +76,8 @@ in
       }
     ];
 
+    modules.core.user = cfg.user;
+
     modules.desktop.hyprland.enable = true;
     boot.kernelPackages = pkgs.linuxPackages_zen;
     nixpkgs.config = {
@@ -99,7 +111,7 @@ in
     services.power-profiles-daemon.enable = cfg.portableWidgets;
     services.upower.enable = cfg.portableWidgets;
 
-    users.users.severin.extraGroups = [ "docker" ];
+    users.users."${cfg.user}".extraGroups = [ "docker" ];
     environment.systemPackages = with pkgs; [
       curl
       wget
@@ -118,8 +130,8 @@ in
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      extraSpecialArgs = { inherit inputs; };
-      users.severin = {
+      extraSpecialArgs = { inherit inputs; inherit (cfg) user; };
+      users."${cfg.user}" = {
         imports = [
           ../../users/sevi/sevi.nix
           ../../users/sevi/moshi.nix
@@ -131,6 +143,7 @@ in
             portableWidgets
             automaticSuspend
             llmBackend
+            keyboard
             ;
         };
       };

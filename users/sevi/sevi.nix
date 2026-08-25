@@ -8,9 +8,12 @@
 {
   imports = [
     ./common.nix
-    inputs.local-assistant.homeManagerModules.default
+    # LocalAssistant disabled: flake input pointed at a machine-local path
+    # (/home/severin/LocalAssistant) that does not exist on this host.
+    # Re-add `local-assistant` input + HM module + noctalia widget when present.
     ./apps.nix
     ./gdrive.nix
+    ./nas-mount.nix
     ./editor.nix
     ./noctalia.nix
     ./hyprland.nix
@@ -52,16 +55,13 @@
         "cuda"
       ];
     };
+    keyboard = lib.mkOption {
+      description = "Hyprland keyboard layout for this host.";
+      type = lib.types.str;
+    };
   };
 
   config = {
-    services.local-assistant = {
-      enable = true;
-      speechConfig = "/home/severin/LocalAssistant/config/speech.yaml";
-      playChime = true;
-      notifications = true;
-    };
-
     home.file.".local/bin/keep-awake" = {
       source = ./scripts/keep-awake;
       executable = true;

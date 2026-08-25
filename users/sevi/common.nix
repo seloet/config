@@ -1,4 +1,4 @@
-{ ... }:
+{ user, ... }:
 
 {
   imports = [
@@ -8,8 +8,8 @@
   ];
 
   home = {
-    username = "severin";
-    homeDirectory = "/home/severin";
+    username = user;
+    homeDirectory = "/home/${user}";
     stateVersion = "23.11";
     pointerCursor.enable = true;
     sessionPath = [ "$HOME/.local/bin" ];

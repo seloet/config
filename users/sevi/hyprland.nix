@@ -63,7 +63,7 @@ in
 
       hl.config({
         input = {
-          kb_layout = "ch",
+          kb_layout = "us",
         },
         general = {
           gaps_in = 0,

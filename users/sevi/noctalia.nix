@@ -38,7 +38,6 @@
           center = [
             "weather"
             "todo"
-            "local-assistant"
             "clock"
           ];
           end = [
@@ -68,17 +67,12 @@
           scale = 1.2;
         };
 
-        local-assistant = {
-          type = "sevi/local-assistant:toggle";
-          scale = 1.2;
-        };
       };
 
       plugins = {
         enabled = [
           "sevi/pomodoro"
           "sevi/todo"
-          "sevi/local-assistant"
         ];
         source = [
           {
