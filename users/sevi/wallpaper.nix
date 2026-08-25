@@ -59,28 +59,25 @@ let
       fi
       selected="''${wallpapers[$index]}"
 
-      loaded=false
-      for _attempt in {1..50}; do
-        if "$hyprctl_command" hyprpaper preload "$selected" >/dev/null 2>&1; then
-          loaded=true
-          break
-        fi
-        sleep 0.1
-      done
-      if [[ "$loaded" != true ]]; then
-        echo "wallpaper-cycle: hyprpaper did not become ready" >&2
-        exit 1
-      fi
-
       mapfile -t monitors < <("$hyprctl_command" monitors -j | jq -r '.[].name')
       if (( ''${#monitors[@]} == 0 )); then
         echo "wallpaper-cycle: no active monitors found" >&2
         exit 1
       fi
       for monitor in "''${monitors[@]}"; do
-        "$hyprctl_command" hyprpaper wallpaper "$monitor,$selected" >/dev/null
+        applied=false
+        for _attempt in {1..50}; do
+          if "$hyprctl_command" hyprpaper wallpaper "$monitor,$selected,cover" >/dev/null 2>&1; then
+            applied=true
+            break
+          fi
+          sleep 0.1
+        done
+        if [[ "$applied" != true ]]; then
+          echo "wallpaper-cycle: could not set wallpaper on $monitor" >&2
+          exit 1
+        fi
       done
-      "$hyprctl_command" hyprpaper unload unused >/dev/null
 
       mkdir -p "$(dirname "$state_file")"
       temporary="$state_file.tmp.$$"
@@ -104,17 +101,9 @@ in
     settings.splash = false;
   };
 
-  systemd.user.services.wallpaper-restore = {
-    Unit = {
-      Description = "Restore the selected Hyprpaper wallpaper";
-      Requires = [ "hyprpaper.service" ];
-      After = [ "hyprpaper.service" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${wallpaperCycle}/bin/wallpaper-cycle --restore";
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
+  # Restore the saved index once Hyprpaper starts. The script retries until
+  # Hyprpaper's IPC socket is ready.
+  systemd.user.services.hyprpaper.Service.ExecStartPost = [
+    "${wallpaperCycle}/bin/wallpaper-cycle --restore"
+  ];
 }

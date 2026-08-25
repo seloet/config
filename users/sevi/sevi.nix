@@ -1,19 +1,14 @@
 {
   config,
   lib,
-  inputs,
   ...
 }:
 
 {
   imports = [
     ./common.nix
-    # LocalAssistant disabled: flake input pointed at a machine-local path
-    # (/home/severin/LocalAssistant) that does not exist on this host.
-    # Re-add `local-assistant` input + HM module + noctalia widget when present.
     ./apps.nix
     ./gdrive.nix
-    ./nas-mount.nix
     ./editor.nix
     ./noctalia.nix
     ./hyprland.nix
@@ -58,6 +53,10 @@
     keyboard = lib.mkOption {
       description = "Hyprland keyboard layout for this host.";
       type = lib.types.str;
+    };
+    localAssistant = lib.mkOption {
+      description = "Whether LocalAssistant and its Noctalia widget are enabled.";
+      type = lib.types.bool;
     };
   };
 

@@ -1,0 +1,6 @@
+{
+  "firefox":   { "aliases": ["fire fox", "browser", "mozilla", "firefox browser"], "linux": ["firefox"],            "windows": ["firefox.exe"],        "macos": ["open", "-a", "Firefox"] },
+  "terminal":  { "aliases": ["konsole", "alacritty", "ghostty", "shell", "termin"], "linux": ["ghostty"],         "windows": ["wt.exe"],             "macos": ["open", "-a", "Terminal"] },
+  "files":     { "aliases": ["file manager", "file managers", "my files", "nautilus", "explorer"],  "linux": ["xdg-open", "."],     "windows": ["explorer"],           "macos": ["open"] },
+  "vscode":    { "aliases": ["vs code", "visual studio code", "code", "viscode"],  "linux": ["code"],              "windows": ["code"],               "macos": ["open", "-a", "Visual Studio Code"] }
+}

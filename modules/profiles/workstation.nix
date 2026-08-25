@@ -30,6 +30,8 @@ in
       type = lib.types.str;
       default = "ch";
     };
+    localAssistant = lib.mkEnableOption "the LocalAssistant service and Noctalia widget";
+    nasMount = lib.mkEnableOption "the Synology NAS user mount";
     monitors = lib.mkOption {
       description = "Monitor definitions forwarded to the user's Hyprland configuration.";
       default = [ ];
@@ -136,6 +138,13 @@ in
           ../../users/sevi/sevi.nix
           ../../users/sevi/moshi.nix
           inputs.noctalia.homeModules.default
+        ]
+        ++ lib.optionals cfg.localAssistant [
+          inputs.local-assistant.homeManagerModules.default
+          ../../users/sevi/local-assistant.nix
+        ]
+        ++ lib.optionals cfg.nasMount [
+          ../../users/sevi/nas-mount.nix
         ];
         workstation = {
           inherit (cfg)
@@ -144,6 +153,7 @@ in
             automaticSuspend
             llmBackend
             keyboard
+            localAssistant
             ;
         };
       };

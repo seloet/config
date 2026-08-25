@@ -63,7 +63,7 @@ in
 
       hl.config({
         input = {
-          kb_layout = "us",
+          kb_layout = ${builtins.toJSON config.workstation.keyboard},
         },
         general = {
           gaps_in = 0,

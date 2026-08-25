@@ -10,6 +10,10 @@
 
   profiles.workstation = {
     enable = true;
+    user = "severin";
+    keyboard = "ch";
+    localAssistant = true;
+    nasMount = false;
     portableWidgets = true;
     automaticSuspend = true;
     llmBackend = "cpu";

@@ -27,6 +27,10 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    local-assistant = {
+      url = "path:./vendor/local-assistant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     herdr = {
       url = "github:ogulcancelik/herdr/v0.7.5";
       inputs.nixpkgs.follows = "nixpkgs";

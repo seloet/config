@@ -41,13 +41,13 @@
       };
 
       plugins = {
+        auto_update = "none";
         enabled = [ "sevi/todo" ];
         source = [
           {
             name = "sevi-config";
             kind = "path";
             location = "${./plugins}";
-            auto_update = false;
             enabled = true;
           }
         ];

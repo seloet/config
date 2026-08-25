@@ -1,0 +1,45 @@
+.
+alacritty
+browser
+code
+explorer
+file manager
+file managers
+files
+fire fox
+firefox
+firefox browser
+ghostty
+konsole
+mozilla
+my files
+nautilus
+shell
+termin
+terminal
+viscode
+visual studio code
+vs code
+vscode
+xdg-open
+buy
+milk
+stretch
+stand
+resume
+pause
+volume
+open
+close
+lock
+screen
+search
+note
+time
+music
+media
+play
+next
+previous
+song
+track

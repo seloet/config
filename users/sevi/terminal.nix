@@ -49,6 +49,7 @@
     settings = {
       "confirm-close-surface" = false;
       "background-opacity" = 0.85;
+      "copy-on-select" = true;
       # middle-click paste is swallowed by mouse-reporting apps; reliable fallback
       "keybind" = "ctrl+shift+insert=paste_from_selection";
     };

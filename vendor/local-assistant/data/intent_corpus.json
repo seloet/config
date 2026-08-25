@@ -1,0 +1,3010 @@
+[
+ {
+  "text": "CREATE A NOTE SAYING BY MIL",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "CREATE A NOTE SAYING BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "CREATE A NOTE SAYING BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "CREATE A NOTE SAYING BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "CREATE A NOTE SAYING BY MIL",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "CREATE A NOTE SAYING BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "CREATE A NOTE SAYING BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "CREATE A NOTE SAYING BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE TO BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE TO BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE TO BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE TO BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE TO BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE TO BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE TO BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE TO BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "NOTE THAT I SHOULD BUY MI",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "NOTE THAT I SHOULD BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "NOTE THAT I SHOULD BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "NOTE THAT I SHOULD BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "NOTE THAT I SHOULD BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "NOTE THAT I SHOULD BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "NOTE THAT I SHOULD BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "NOTE THAT I SHOULD BUY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "ADD A NOTE BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "ADD A NOTE BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "AD A NOTE BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "ADD A NOTE BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "ADD A NOTE BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "ADD A NOTE BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "ADD A NOTE BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "ADD A NOTE BY MILK",
+  "tool": "create_note",
+  "expected": {
+   "text": "buy milk"
+  }
+ },
+ {
+  "text": "MAKE A NOTE STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "MAKE A NOTE STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "MAKE A NOTE STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "MAKE A NOTE STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "MAKE A NOTE STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "MAKE A NOTE STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "MAKE A NOTE STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "MAKE A NOTE STAND UP AND STRET",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "NOTE TO STAND UP AND STRE",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "NOTE TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "NOTE TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "NOTE TO STAND UP AND STRET",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "NOTE TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "NO TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "NOTE TO STAND UP AND STRET",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "NOTE TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CREATE A NOTE STAND UPSTRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CREATE A NOTE STAND UPSTRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CREATE A NOTE STAND UPSTRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CREATE A NOTE STAND UPSTRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CREATE A NOTE STAND UPSTRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CREATE A NOTE STAND UPSTRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CREATE A NOTE STAND UPSTRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CREATE A NOTE STAND UPSTRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "REMIND ME TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "REMIND ME TO STAND UP AND STRET",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "REMIND ME TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "REMIND ME TO STAND UP AND STRET",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "REMIND ME TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "REMIND ME TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "REMIND ME TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "REMIND ME TO STAND UP AND STRETCH",
+  "tool": "create_note",
+  "expected": {
+   "text": "stand up and stretch"
+  }
+ },
+ {
+  "text": "CURRENT TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENTINE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIMES",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT'S THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT'S THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT'S THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT'S THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT'S THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT'S THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT'S THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT'S THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GIVE ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GIVE ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GIVE ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GIVE ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GIVE ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GIVE ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GIVE ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GIVE ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT IS THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT IS THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT IS THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT IS THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT IS THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT IS THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT IS THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT IS THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT TIME IS IT",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT TIME IS IT",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT TIME IS IT",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT TIME IS IT",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT TIME IS IT",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT TIME IS IT",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT TIME IS IT",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "WHAT TIME IS IT",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TELL ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TELL ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TELL ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TELL ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TELL ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TELL ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TELL ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "TELL ME THE TIME",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "CURRENT TIME PLEASE",
+  "tool": "get_time",
+  "expected": {}
+ },
+ {
+  "text": "GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME NOW",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME NOW",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME NOW",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME NOW",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME NOW",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME NOW",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME NOW",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "GO HOME NOW",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "PLEASE GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "PLEASE GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "PLEASE GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "PLEASE GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "PLEASE GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "PLEASE GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "PLEASE GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "PLEASE GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "COMPUTER GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "COMPUTER GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "COMPUTER GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "COMPUTER GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "COMPUTER GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "COMPUTER GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "COMPUTER GO HOME",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "COMPEUTER GO HOMES",
+  "tool": "keyword_spotting",
+  "expected": {
+   "keyword": "GO HOME"
+  }
+ },
+ {
+  "text": "OPEN FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN THE FILE MANAGER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN THE FILE MANAGER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN THE FILE MANAGER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPENED THE FILE MANAGER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN THE FILE MANAGER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN THE FILE MANAGERS",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN THE FILE MANAGER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN THE FILE MANAGER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "SHOW ME MY FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "SHOW ME MY FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "SHOW ME MY FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "SHOW ME MY FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "SHOW ME MY FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "SHOW ME MY FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "SHOW ME MY FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "SHOW ME MY FILES",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "LAUNCH THE FILE EXPLORER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "LAUNCH THE FILE EXPLORER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "LAUNCHED THE FILE EXPLORER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "LAUNCH THE FILE EXPLORER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "LAUNCH THE FILE EXPLORER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "LAUNCH THE FILE EXPLORER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "LAUNCH THE FILE EXPLORER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "LAUNCH THE FILE EXPLORER",
+  "tool": "open_application",
+  "expected": {
+   "application": "files"
+  }
+ },
+ {
+  "text": "OPEN FIRE FO",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN FIREFOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN FIREFOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN FIREFOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "FIRE UP FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "FIRE UP FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "FIRE UP FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "FIRE UP FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "FIRE UP FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "FIRE UP FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "FIRE UP FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "FIRE UP FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "PLEASE LAUNCH FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "PLEASE LAUNCH FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "PLEASE LAUNCH FIREFOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "PLEASE LAUNCH FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "PLEASE LAUNCH FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "PLEASE LAUNCH FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "PLEASE LAUNCH FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "PLEASE LAUNCH FIRE FOX",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN THE FIREFOX BROWSER",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN THE FIREFOX BROWSER",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN THE FIRE FOX BROWSER",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPENED THE FIRE FOX BROWSER",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN THE FIRE FOX BROWSER",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN THE FIREFOX BROWSER",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN THE FIRE FOX BROWSER",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN THE FIRE FOX BROWSER",
+  "tool": "open_application",
+  "expected": {
+   "application": "firefox"
+  }
+ },
+ {
+  "text": "OPEN THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN THE TERMIN",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN THE TERMINALS",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN THE TERMINALS",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "FIRE UP THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "FIRE UP THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "FIRE UP THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "FIRE UP THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "FIRE UP THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "FIRE UP THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "FIRE UP THE TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "FIRE UP THE TERMINALS",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LAUNCH TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LAUNCH TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LAUNCHED TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LAUNCH TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LAUNCH TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LAUNCH TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LUNCH TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LAUNCH TERMINAL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN A SHELL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN A SHELL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN A SHELL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN A SHELL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN A SHELL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN A SHELL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN A SHELL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "OPEN A SHELL",
+  "tool": "open_application",
+  "expected": {
+   "application": "terminal"
+  }
+ },
+ {
+  "text": "LAUNCH VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH'S VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISUAL STUDIO CO",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "OPEN VIA'S CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "OPEN VIAST CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "OPEN V S CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "OPEN V S CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "OPEN V S CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "OPEN V S CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "OPEN V S CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "OPEN Z CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISCODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISCODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "BLANCHE VICE GODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISCODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VICE GODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCHEVIE SCODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISCODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "LAUNCH VISCODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "START VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "START VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "START VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "START VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "START VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "START VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "START VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "START VISUAL STUDIO CODE",
+  "tool": "open_application",
+  "expected": {
+   "application": "vscode"
+  }
+ },
+ {
+  "text": "FINE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FINE REPORT P S",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND REPORT P S",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND REPORT F",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FINE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR REPORT F",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR REPORT F",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR REPORT P",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND THE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND THE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND THE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND THE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND THE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND THE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND THE REPORT F",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "FIND THE REPORT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "LOOK FOR REPORT P F DOCUMENT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "LOOK FOR REPORT P F DOCUMENT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "LOOK FOR REPORT F DOCUMENT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "LOOK FOR REPORT P F DOCUMENT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "LOOK FOR REPORT F DOCUMENT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "LOOK FOR REPORT F DOCUMENTS",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "LOOK FOR REPORT P F DOCUMENT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "LOOK FOR REPORT F DARCUMENT",
+  "tool": "search_files",
+  "expected": {
+   "query": "report pdf"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FILES FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "FIND MY RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "FIND MY RESUM",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "FIND MY RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "FIND MY RESUM",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "FIND MY RESUM",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "FIND MY RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "FIND MY RESUM",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "FIND MY RESUM",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "LOOK FOR RESUME FILE",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "LOOK FOR RESUME FILE",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "LOOK FOR RESUME FILE",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "LOOK FOR RESUME FILE",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "LOOK FOR RESUME FILE",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "LOOK FOR RESUME FILE",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "LOOK FOR RESUME FILE",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "LOOK FOR RESUMED FILE",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FOR RESUM",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FOR RAZUM",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SEARCH FOR RESUME",
+  "tool": "search_files",
+  "expected": {
+   "query": "resume"
+  }
+ },
+ {
+  "text": "SET VOLUME TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET VOLUME TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET VOLUME TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET VOLUME TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET VOLUME TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET VOLUME TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET VOLUME TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET VOLUME TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "TURN THE VOLUME TO THIRTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "TURN THE VOLUME TO THIRTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "TURN THE VOLUME TO THIRTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "TURN THE VOLUME TO THIRTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "TURN THE VOLUME TO THIRTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "TURN THE VOLUME TO THIRTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "TURN THE VOLUME TO THIRTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "TURN THE VOLUME TO THIRTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "VOLUME THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "VOLUME THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "VOLUME THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "VOLUME THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "VOLUME THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "VOLUMES THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "VOLUME THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "VOLUME THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET IT TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET IT TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET IT TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET IT TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET IT TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET INTO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET IT TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET IT TO THIRTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 30
+  }
+ },
+ {
+  "text": "SET THE VOLUME TO SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET THE VOLUME TO SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET THE VOLUME TO SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET THE VOLUME TO SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET THE VOLUME TO SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET THE VOLUME TO SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SAID THE VOLUME TO SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET THE VOLUME TO SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "TURN IT TO SIXTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "TURN IT TO SIXTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "TURN IT TO SIXTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "TURN IT TO SIXTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "TURN IT TO SIXTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "TURN IT TO SIXTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "TURN AT THE SIXTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "TURN IT TO SIXTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "VOLUME SIX",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SAT VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "THAT VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET VOLUME SIXTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 60
+  }
+ },
+ {
+  "text": "SET VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET VOLUME TO EIGHTY PER C",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "TURN VOLUME UP TO EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "TURN VOLUME UP TO EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "TURN VOLUME UP TO EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "TURN VOLUME UP TO EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "TURN VOLUME UP TO EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "TURN VOLUME UP TO EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "TURN VOLUME UP TO EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "TURN VOLUME UP TO A D",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "VOLUME TO EIGHTY PER CENT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET THE VOLUME AT EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET THE VOLUME AT EIGHT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET THE VOLUME AT EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET THE VOLUME AT EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET THE VOLUME AT EIGHT",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET THE VOLUME AT EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET THE VOLUME AT EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ },
+ {
+  "text": "SET THE VOLUME AT EIGHTY",
+  "tool": "set_volume",
+  "expected": {
+   "percent": 80
+  }
+ }
+]

@@ -38,8 +38,9 @@
           center = [
             "weather"
             "todo"
-            "clock"
-          ];
+          ]
+          ++ lib.optionals config.workstation.localAssistant [ "local-assistant" ]
+          ++ [ "clock" ];
           end = [
             "network"
             "bluetooth"
@@ -64,22 +65,26 @@
 
         todo = {
           type = "sevi/todo:open";
-          scale = 1.2;
         };
-
+      }
+      // lib.optionalAttrs config.workstation.localAssistant {
+        local-assistant = {
+          type = "sevi/local-assistant:toggle";
+        };
       };
 
       plugins = {
+        auto_update = "none";
         enabled = [
           "sevi/pomodoro"
           "sevi/todo"
-        ];
+        ]
+        ++ lib.optionals config.workstation.localAssistant [ "sevi/local-assistant" ];
         source = [
           {
             name = "sevi-config";
             kind = "path";
             location = "${./plugins}";
-            auto_update = false;
             enabled = true;
           }
         ];

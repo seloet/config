@@ -1,6 +1,7 @@
 id = "sevi/pomodoro"
 name = "Pomodoro"
 version = "1.0.0"
+plugin_api = 3
 min_noctalia = "5.0.0"
 author = "sevi"
 license = "MIT"

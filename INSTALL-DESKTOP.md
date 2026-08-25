@@ -16,12 +16,10 @@ from cache and builds whatever is missing.
 | Username `severin` → `sevi`, `/home/severin` → `/home/sevi` | Matches this machine's existing `/home/sevi` so all data stays owned |
 | `kb_layout ch` → `us`, console keymap `sg` → `us` | Matches current input setup |
 | HDMI-A-1 `transform 1` → `3` | Matches the working rotation on this monitor |
-| Removed `local-assistant` flake input, HM module import, Noctalia widget/plugin entry | Input pointed at machine-local path that doesn't exist here; broke flake eval |
+| Made LocalAssistant host-selectable and vendored its build source | Keeps it enabled on the laptop without requiring `/home/severin/LocalAssistant` on the desktop |
 | Wrote real `hosts/desktop/hardware-configuration.nix` (was non-deployable template) | LUKS UUID, btrfs subvols @/@home/@log/@pkg, EFI UUID, 3 ext4 data disks, Intel microcode, NVIDIA driver |
-| Added `users/sevi/nas-mount.nix` | Synology DS114 rclone FUSE mount mirroring `gdrive.nix`; inert until `rclone.conf` exists |
+| Added `users/sevi/nas-mount.nix` | Synology DS214 rclone FUSE mount mirroring `gdrive.nix`; enabled only on the desktop |
 | Tailscale | Already enabled upstream (`modules/core/services.nix`) — nothing to add |
-
-| Added `users/sevi/nas-mount.nix` | Synology DS214 rclone FUSE mount mirroring `gdrive.nix`; inert until `rclone.conf` exists |
 
 1. **Backups** — /home survives (no formatting), but verify:
    `ls /home/sevi` sanity check; sync irreplaceable stuff to NAS/cloud anyway.
@@ -80,9 +78,8 @@ systemctl --user status gdrive-mount nas-mount
   `~/.config/rclone/rclone.conf` is present).
 - Old Omarchy dotfiles in `~/.config` are inert leftovers; delete whenever.
 - Git identity include (`~/.config/git/private`) survives on @home.
-- To restore LocalAssistant support: put the project at `/home/sevi/LocalAssistant`,
-  re-add the flake input, the HM-module import, the Noctalia widget/plugin lines,
-  and the `services.local-assistant` block (all marked with comments in the repo).
+- LocalAssistant is intentionally disabled for `desktop`; it remains enabled for
+  `laptop` through the host-selectable workstation profile.
 
 ## Rollback safety
 

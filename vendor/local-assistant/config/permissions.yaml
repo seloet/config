@@ -1,0 +1,22 @@
+# LocalAssistant — Tool risk/permission tiers (plan: Safety & Validation Layers)
+#
+# Risk tiers gate execution BEFORE a tool runs (see safety/confirmation.py):
+#   low    -> auto-execute
+#   medium -> confirm if the parse was ambiguous / low-confidence
+#   high   -> require explicit confirmation (never auto-run)
+#
+# Only tools explicitly listed here keep their declared tier. Any tool NOT
+# listed is treated as HIGH (fail-closed). The defaults below match the plan;
+# this file can override tiers or add new tools. Tools beyond the initial set
+# (close_application, open_file, lock_screen) are listed for forward-compat.
+
+risk_tiers:
+  open_application: low
+  set_volume: low
+  get_time: low
+  search_files: low
+  play_pause_media: low
+  close_application: medium
+  open_file: medium
+  create_note: medium
+  lock_screen: medium

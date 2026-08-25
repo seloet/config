@@ -9,7 +9,7 @@
       manager.show_hidden = true;
       opener.zathura = [
         {
-          run = ''zathura "$@"'';
+          run = "zathura %s";
           desc = "Zathura";
           for = "linux";
           orphan = true;
@@ -17,7 +17,7 @@
       ];
       opener.glow = [
         {
-          run = ''glow "$1"'';
+          run = "glow --tui %s1";
           desc = "Glow";
           for = "linux";
           block = true;
@@ -25,7 +25,7 @@
       ];
       opener.nvim = [
         {
-          run = ''nvim "$@"'';
+          run = "nvim %s";
           desc = "Neovim";
           for = "linux";
           block = true;
@@ -62,7 +62,7 @@
     name = "Glow";
     genericName = "Markdown Viewer";
     comment = "Render Markdown in a terminal";
-    exec = "${pkgs.ghostty}/bin/ghostty -o background-opacity=1 -e ${pkgs.glow}/bin/glow %f";
+    exec = "${pkgs.ghostty}/bin/ghostty -o background-opacity=1 -e ${pkgs.glow}/bin/glow --tui %f";
     terminal = false;
     type = "Application";
     mimeType = [ "text/markdown" ];

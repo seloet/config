@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-assistant"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "sherpa-onnx",
+  "pydantic>=2",
+  "pyyaml",
+  "numpy",
+  "pyparsing",
+  "sounddevice",
+  "pystray",
+  "pillow",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "scipy", "soundfile"]
+corpus = ["kokoro-onnx"]
+
+[project.scripts]
+local-assistant = "app:main"
+local-assistant-autostart = "tools.install_autostart:main"
+
+[tool.setuptools]
+packages = ["audio", "config", "data", "output", "parser", "safety", "speech", "tools"]
+py-modules = ["app"]
+
+[tool.setuptools.package-data]
+config = ["*.yaml"]
+data = ["*.json", "*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

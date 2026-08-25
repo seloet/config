@@ -12,6 +12,8 @@
     enable = true;
     user = "sevi";
     keyboard = "us";
+    localAssistant = false;
+    nasMount = true;
     portableWidgets = false;
     automaticSuspend = false;
     llmBackend = "cuda";
