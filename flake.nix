@@ -4,7 +4,6 @@
       "nix-command"
       "flakes"
     ];
-    # numtide's binary cache for llm-agents.nix packages (avoids building from source)
     extra-substituters = [ "https://cache.numtide.com" ];
     extra-trusted-public-keys = [
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
@@ -15,6 +14,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-kernel.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +43,10 @@
       url = "github:Anbeeld/beellama.cpp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llama-mach1 = {
+      url = "github:SyzygyResearch/llama.cpp-mach1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -69,6 +73,18 @@
             ln -s "$executable" "$out/bin/bee-''${name#llama-}"
           done
         '';
+      mkMach1 =
+        backend:
+        let
+          upstream = inputs.llama-mach1.packages.${system}.${backend};
+        in
+        pkgs.runCommand "mach1-renamed-${backend}" { } ''
+          mkdir -p "$out/bin"
+          for executable in ${upstream}/bin/llama-*; do
+            name="$(basename "$executable")"
+            ln -s "$executable" "$out/bin/mach1-''${name#llama-}"
+          done
+        '';
       mkNixosHost =
         { modules }:
         nixpkgs.lib.nixosSystem {
@@ -87,6 +103,8 @@
       packages.${system} = {
         beellama-cpu = mkBeeLlama "cpu";
         beellama-cuda = mkBeeLlama "cuda";
+        mach1-cuda = mkMach1 "cuda";
+        mach1-vulkan = mkMach1 "vulkan";
       };
 
       nixosConfigurations = {

@@ -81,6 +81,22 @@ systemctl --user status gdrive-mount nas-mount
 - LocalAssistant is intentionally disabled for `desktop`; it remains enabled for
   `laptop` through the host-selectable workstation profile.
 
+## Neovim notebooks and Python REPL
+
+After switching to a generation containing the editor changes, restart Neovim.
+`.ipynb` opens as editable Markdown via Jupytext; Molten displays saved text
+outputs and starts the notebook's registered kernel, falling back to
+`nix-python3` when that kernel is unavailable. Use `<leader>mi` to choose a
+kernel, `<leader>mc` to run the current code cell, and `<leader>mr` to re-run
+an evaluated cell. `:w` writes the notebook source and preserves existing
+outputs; after running cells, write the source first and use `<leader>me` to
+export the new outputs explicitly.
+
+In Python source buffers, `<leader>rp` focuses a persistent Python REPL in a
+bottom split. `<leader>rl` sends the current line, and visual `<leader>rs`
+sends a selection, keeping focus in the source buffer. The REPL uses the
+`python3` on Neovim's PATH; it is separate from the notebook's Molten kernel.
+
 ## Rollback safety
 
 NixOS generations: pick previous generation at the boot menu, or

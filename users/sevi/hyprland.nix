@@ -59,6 +59,7 @@ in
       hl.on("hyprland.start", function()
         hl.exec_cmd("noctalia")
         hl.exec_cmd("kdeconnectd")
+        hl.exec_cmd("keepassxc")
       end)
 
       hl.config({
@@ -72,8 +73,14 @@ in
           layout = "dwindle",
         },
 
+        ${lib.optionalString config.workstation.portableWidgets ''
+        decoration = {
+          blur = { enabled = false },
+          shadow = { enabled = false },
+        },
+        ''}
+
         misc = {
-          -- `keep-awake` turns DPMS off directly; a key wakes the displays.
           key_press_enables_dpms = true,
         },
 
@@ -85,7 +92,6 @@ in
         },
       })
 
-      -- fsel can't be matched by Wayland class; identify it by window title.
       hl.window_rule({
         name = "fsel-window",
         match = { title = "^(fsel)$" },
@@ -107,6 +113,7 @@ in
       hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
       hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
       hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
+      hl.bind(mod .. " + SHIFT + S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy]]))
 
       for workspace = 1, 10 do
         local key = workspace % 10
@@ -114,7 +121,6 @@ in
         hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
       end
 
-      -- media keys work while locked and repeat while held
       local mediaBindOptions = { locked = true, repeating = true }
       hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), mediaBindOptions)
       hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), mediaBindOptions)

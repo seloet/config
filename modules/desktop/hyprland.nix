@@ -4,9 +4,6 @@
   options.modules.desktop.hyprland.enable = lib.mkEnableOption "Hyprland";
 
   config = lib.mkIf config.modules.desktop.hyprland.enable {
-    # Only the system binary + launcher live here; window/keybind settings are
-    # owned by home-manager (users/sevi/hyprland.nix). Don't set
-    # programs.hyprland.settings here or you'll get two competing configs.
     programs.hyprland.enable = true;
 
     hardware.graphics = {
@@ -34,7 +31,7 @@
       hyprpolkitagent
       wl-clipboard
       cliphist
-      brightnessctl        # screen-brightness backend for Noctalia + media keys
+      brightnessctl
     ];
   };
 }

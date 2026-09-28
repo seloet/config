@@ -12,7 +12,13 @@ let
       name: type: type == "regular" && builtins.match ".*\\.(png|PNG|jpe?g|JPE?G|webp|WEBP)" name != null
     ) wallpaperEntries
   );
-  wallpapers = map (name: wallpaperDirectory + "/${name}") wallpaperNames;
+  wallpapers = map (
+    name:
+    builtins.path {
+      path = wallpaperDirectory + "/${name}";
+      name = "wallpaper-${name}";
+    }
+  ) wallpaperNames;
   wallpaperArgs = lib.concatMapStringsSep " " lib.escapeShellArg wallpapers;
 
   wallpaperCycle = pkgs.writeShellApplication {
@@ -101,8 +107,8 @@ in
     settings.splash = false;
   };
 
-  # Restore the saved index once Hyprpaper starts. The script retries until
-  # Hyprpaper's IPC socket is ready.
+  programs.noctalia.settings.wallpaper.enabled = false;
+
   systemd.user.services.hyprpaper.Service.ExecStartPost = [
     "${wallpaperCycle}/bin/wallpaper-cycle --restore"
   ];

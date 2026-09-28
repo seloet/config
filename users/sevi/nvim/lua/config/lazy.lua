@@ -40,7 +40,6 @@ require("lazy").setup({
     enabled = false,
     notify = false,
   },
-  -- ~/.config/nvim is read-only (Nix); keep Lazy's lockfile in state dir
   lockfile = vim.fn.stdpath("state") .. "/lazy-lock.json",
   performance = {
     rtp = {

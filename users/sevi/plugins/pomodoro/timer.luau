@@ -1,6 +1,6 @@
 local FOCUS_DURATION = POMODORO_FOCUS_SECONDS or (25 * 60)
 local BREAK_DURATION = POMODORO_BREAK_SECONDS or (5 * 60)
-local ICON = "" -- Nerd Fonts: pom-pomodoro_ticking (U+E003)
+local ICON = ""
 
 local phase = "focus"
 local remaining = FOCUS_DURATION

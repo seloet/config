@@ -68,6 +68,19 @@ in
       ];
       default = "cpu";
     };
+    mach1Backend = lib.mkOption {
+      description = ''
+        Acceleration backend for the Mach-1 llama.cpp fork. Mach-1
+        checkpoints only load in that fork, so it is built independently of
+        the upstream llama.cpp / beellama packages above.
+      '';
+      type = lib.types.enum [
+        "cpu"
+        "cuda"
+        "vulkan"
+      ];
+      default = "cpu";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -113,11 +126,11 @@ in
     services.power-profiles-daemon.enable = cfg.portableWidgets;
     services.upower.enable = cfg.portableWidgets;
 
-    users.users."${cfg.user}".extraGroups = [ "docker" ];
+    users.users."${cfg.user}".extraGroups =
+      lib.optionals config.virtualisation.docker.enable [ "docker" ];
     environment.systemPackages = with pkgs; [
       curl
       wget
-      docker-compose
       (python3.withPackages (ps: [ ps.requests ]))
       modal
       ntfs3g
@@ -127,7 +140,8 @@ in
       mosh
       kdePackages.kdeconnect-kde
       inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ];
+    ]
+    ++ lib.optionals config.virtualisation.docker.enable [ pkgs.docker-compose ];
 
     home-manager = {
       useGlobalPkgs = true;
@@ -152,6 +166,7 @@ in
             portableWidgets
             automaticSuspend
             llmBackend
+            mach1Backend
             keyboard
             localAssistant
             ;

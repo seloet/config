@@ -56,8 +56,6 @@
     };
   };
 
-  # Launch Glow in its own fully opaque terminal so desktop launchers and MIME
-  # handlers do not depend on their generic Terminal=true implementation.
   xdg.desktopEntries.glow = {
     name = "Glow";
     genericName = "Markdown Viewer";

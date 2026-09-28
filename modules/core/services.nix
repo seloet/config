@@ -4,7 +4,6 @@
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
 
-  # local multi-service stacks (e.g. GroktoCrawl)
   virtualisation.docker.enable = true;
 
   security.rtkit.enable = true;

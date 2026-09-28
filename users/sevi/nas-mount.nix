@@ -1,9 +1,3 @@
-# Mount the Synology DS214 (DiskStation) as a local FUSE drive when sevi logs in.
-# Mirrors gdrive.nix: Nix owns ONLY the mount service. The remote ("nas") lives
-# in ~/.config/rclone/rclone.conf; create it once after install with:
-#     rclone config   # choose "smb" (or "nfs"), host = DiskStation's Tailscale IP,
-#                     # user/password, share = the DSM shared folder name
-# The unit no-ops until ~/.config/rclone/rclone.conf exists.
 { pkgs, lib, ... }:
 
 {

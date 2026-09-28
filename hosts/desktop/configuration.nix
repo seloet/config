@@ -17,6 +17,7 @@
     portableWidgets = false;
     automaticSuspend = false;
     llmBackend = "cuda";
+    mach1Backend = "cuda";
     monitors = [
       {
         output = "DP-1";

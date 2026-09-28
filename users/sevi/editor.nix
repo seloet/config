@@ -1,5 +1,20 @@
 { pkgs, ... }:
 
+let
+  notebookKernel = pkgs.writeTextDir "share/jupyter/kernels/nix-python3/kernel.json" (
+    builtins.toJSON {
+      argv = [
+        "${pkgs.python3.withPackages (ps: [ ps.ipykernel ])}/bin/python3"
+        "-m"
+        "ipykernel_launcher"
+        "-f"
+        "{connection_file}"
+      ];
+      display_name = "Python 3 (Nix)";
+      language = "python";
+    }
+  );
+in
 {
   programs.neovim = {
     enable = true;
@@ -7,33 +22,36 @@
     viAlias = true;
     vimAlias = true;
     withRuby = false;
-    withPython3 = false;
+    withPython3 = true;
+    sideloadInitLua = true;
 
-    # Neorg's prebuilt norg parser needs libstdc++; expose the Nix runtime
-    # library to Neovim and to its plugin-manager subprocesses.
     extraWrapperArgs = [
       "--prefix"
       "LD_LIBRARY_PATH"
       ":"
       "${pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ]}"
+      "--prefix"
+      "JUPYTER_PATH"
+      ":"
+      "${notebookKernel}/share/jupyter"
     ];
 
-    # toolchains for nvim plugins / LSP
+    extraPython3Packages = ps: with ps; [
+      pynvim
+      jupyter-client
+      nbformat
+    ];
+
     extraPackages = with pkgs; [
       gnumake
       gcc
-      # Nix-built tree-sitter CLI so nvim-treesitter can compile parsers
-      # natively. The prebuilt binary it tries to download is a generic
-      # glibc ELF that NixOS refuses to execute ("Could not start
-      # dynamically linked executable"), which is what caused the
-      # treesitter errors on every startup.
       tree-sitter
       nodejs
-      # Neorg's rockspec dependencies require the Lua 5.1 ABI used by Neovim.
       lua5_1
       lua51Packages.luarocks
 
       python3
+      python3Packages.jupytext
       pyright
       ruff
 
@@ -49,7 +67,6 @@
     ];
   };
 
-  # atomically mounts ./nvim over ~/.config/nvim
   xdg.configFile."nvim" = {
     source = ./nvim;
     recursive = true;

@@ -1,13 +1,5 @@
 { pkgs, ... }:
 
-# google-colab-cli is not in nixpkgs. It depends on two small packages that are
-# also missing from nixpkgs (jupyter-kernel-client, jupyter-mimetypes). We define
-# them locally as buildPythonPackage derivations and wrap google-colab-cli as a
-# buildPythonApplication so it lands in the system profile.
-#
-# Note: jupyter-kernel-client and jupyter-mimetypes only publish wheels (no sdist),
-# so they are fetched as wheels and built with format = "wheel".
-
 let
   python = pkgs.python3;
 
@@ -19,8 +11,6 @@ let
       url = "https://files.pythonhosted.org/packages/72/45/cb4671e13fed39f721066ad1a00714d4b607982b8d3e97a25f836198d1df/jupyter_mimetypes-0.2.0-py3-none-any.whl";
       hash = "sha256-5tzZiSWOP8lENltlbZFzGRUX4OOTvYeOl85QDls4hSc=";
     };
-    # pyarrow is only needed for parquet support, which colab does not use.
-    # The runtime-deps check would require it; disable that check for this pkg.
     dontCheckRuntimeDeps = true;
     propagatedBuildInputs = [ python.pkgs.typing-extensions ];
     doCheck = false;
@@ -53,7 +43,6 @@ let
     version = "0.6.0";
     pyproject = true;
     nativeBuildInputs = [ python.pkgs.hatchling python.pkgs.hatch-vcs ];
-    # filelock in nixpkgs is 3.29.0 vs the >=3.29.2 pin; functionally fine.
     dontCheckRuntimeDeps = true;
     src = pkgs.fetchPypi {
       pname = "google_colab_cli";

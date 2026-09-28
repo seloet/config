@@ -1,10 +1,5 @@
 { ... }:
 
-# Reduced Hyprland setup for the Surface. Based on the laptop's
-# wayland.windowManager.hyprland config but using the lean app set:
-# Micro (not Neovim), Brave, Yazi, Zathura. Blur/shadows/animations off,
-# VFR on, single scaled display. Touchpad defaults are set; touchscreen
-# tuning is deferred until after on-device hardware testing.
 {
   programs.hyprlock.enable = true;
 
@@ -37,15 +32,12 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # Preserve the existing Home Manager (< 26.05) Hyprlang behavior explicitly.
     configType = "hyprlang";
     systemd.enable = true;
 
     settings = {
-      # $mod must be defined before it can be used in binds below.
       "$mod" = "SUPER";
 
-      # Launch the reduced Noctalia bar once on session start.
       exec-once = [ "noctalia" ];
 
       monitor = [
@@ -79,7 +71,6 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         force_default_wallpaper = 0;
-        # `keep-awake` turns DPMS off directly; a key wakes the display.
         key_press_enables_dpms = true;
       };
 

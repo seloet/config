@@ -1,5 +1,4 @@
--- opens ~/gdrive/todo.txt (rclone mount) in tuxedo from the bar
-local ICON = "" -- Nerd Fonts: nf-fa-list (U+F0CA)
+local ICON = ""
 local TODO_PATH = "/home/severin/gdrive/todo.txt"
 
 local function render()
@@ -8,7 +7,6 @@ local function render()
 end
 
 function onClick()
-  -- runInTerminal (not runAsync): tuxedo is a TUI and needs a real PTY
   noctalia.runInTerminal("tuxedo " .. TODO_PATH)
 end
 

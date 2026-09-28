@@ -1,10 +1,5 @@
 { ... }:
 
-# Reduced Noctalia bar for the Surface. Kept: todo plugin, clock, battery,
-# network, bluetooth, volume, brightness, session. Removed: weather + pomodoro
-# (and the pomodoro plugin) to cut background activity, polling and storage.
-# Heavy transparency / large shadows disabled to suit the tablet form factor.
-# Same v5 schema as noctalia.nix.
 {
   programs.noctalia = {
     enable = true;
@@ -13,13 +8,13 @@
         main = {
           position = "top";
           thickness = 34;
-          margin_ends = 0;     # horizontal margin -> full width
-          margin_edge = 0;     # vertical margin from screen edge
+          margin_ends = 0;
+          margin_edge = 0;
           padding = 14;
           widget_spacing = 6;
           radius = 0;
-          shadow = false;            # no large shadows
-          background_opacity = 0.92; # light transparency (was 0.85)
+          shadow = false;
+          background_opacity = 0.92;
           capsule = false;
           auto_hide = false;
           reserve_space = true;

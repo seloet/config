@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# $mod+ESC power menu; --no-exec lets us branch on fsel's selection
 set -u
 
 choice=$(

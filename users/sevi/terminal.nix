@@ -1,11 +1,9 @@
-{ ... }:
+{ lib, ... }:
 
 {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    # Reuse the existing completion dump instead of auditing every completion
-    # directory whenever a terminal opens.
     completionInit = "autoload -U compinit && compinit -C";
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -50,9 +48,13 @@
       "confirm-close-surface" = false;
       "background-opacity" = 0.85;
       "copy-on-select" = true;
-      # middle-click paste is swallowed by mouse-reporting apps; reliable fallback
       "keybind" = "ctrl+shift+insert=paste_from_selection";
     };
+  };
+
+  programs.foot = {
+    enable = true;
+    settings.colors-dark.alpha = lib.mkForce 0.85;
   };
 
   programs.tmux = {

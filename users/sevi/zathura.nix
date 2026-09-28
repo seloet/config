@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   colors = config.lib.stylix.colors;
@@ -8,13 +8,20 @@ in
 {
   programs.zathura = {
     enable = true;
+    package =
+      (pkgs.zathuraPkgs.overrideScope (
+        _final: prev: {
+          zathura_core = prev.zathura_core.overrideAttrs (old: {
+            patches = (old.patches or [ ]) ++ [ ./zathura-fit-on-reopen.patch ];
+          });
+        }
+      )).zathuraWrapper;
     options = {
       adjust-open = "best-fit";
 
       page-v-padding = 0;
       page-h-padding = 0;
 
-      # Keep the themed window and rendered page background fully opaque.
       default-bg = lib.mkForce (rgb "base00");
       render-loading-bg = rgb "base00";
       recolor = true;

@@ -9,6 +9,7 @@
     ./common.nix
     ./apps.nix
     ./gdrive.nix
+    ./calendar.nix
     ./editor.nix
     ./noctalia.nix
     ./hyprland.nix
@@ -48,6 +49,14 @@
       type = lib.types.enum [
         "cpu"
         "cuda"
+      ];
+    };
+    mach1Backend = lib.mkOption {
+      description = "Acceleration backend for the Mach-1 llama.cpp fork.";
+      type = lib.types.enum [
+        "cpu"
+        "cuda"
+        "vulkan"
       ];
     };
     keyboard = lib.mkOption {

@@ -1,14 +1,3 @@
-# Real hardware configuration for the desktop host (generated 2026-08-25
-# against the running Omarchy install, which this NixOS flake replaces).
-#
-# Disk layout (kept intact across the reinstall — /home data survives):
-#   sda: 447G SSD
-#     ├─ sda1  vfat        EFI system partition          -> /boot
-#     └─ sda2  crypto_LUKS "root"                         -> unlocked as /dev/mapper/root
-#        └─ btrfs with subvolumes @, @home, @log, @pkg
-#   sdb1/sdc1/sdd1: ext4 data disks mounted under /mnt/storage*
-#
-# Swap is zram-only (zramSwap configured in profiles/workstation.nix).
 { lib, ... }:
 
 {
@@ -26,7 +15,6 @@
 
   boot.initrd.luks.devices."root" = {
     device = "/dev/disk/by-uuid/0b75c7f8-d5bd-4025-b7a5-1a76c24b3f1f";
-    # Ask for the passphrase once; systemd stage handles it.
     bypassWorkqueues = true;
   };
 
@@ -80,14 +68,11 @@
 
   swapDevices = [ ];
 
-  # Intel i7-10700KF + NVIDIA RTX 2060 (Turing). The NVIDIA driver is required
-  # for Hyprland and for the CUDA LLM backend selected in the workstation profile.
   hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
   hardware.enableRedistributableFirmware = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
-    # Turing consumer GPUs are supported by the open kernel module.
     open = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
@@ -95,7 +80,4 @@
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-
-  # NOTE: verify these UUIDs against the actual disk before installing:
-  #   lsblk -o NAME,SIZE,FSTYPE,UUID,MOUNTPOINTS
 }

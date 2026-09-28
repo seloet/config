@@ -1,4 +1,4 @@
-{ user, ... }:
+{ user, lib, ... }:
 
 {
   services.local-assistant = {
@@ -7,4 +7,6 @@
     playChime = true;
     notifications = true;
   };
+
+  systemd.user.services.local-assistant.Install.WantedBy = lib.mkForce [ ];
 }
