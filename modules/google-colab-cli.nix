@@ -19,6 +19,7 @@ let
 
   jupyter-kernel-client = python.pkgs.buildPythonPackage rec {
     pname = "jupyter-kernel-client";
+    # google-colab-cli requires this exact version.
     version = "0.9.0";
     format = "wheel";
     src = pkgs.fetchurl {
@@ -40,14 +41,14 @@ let
 
   google-colab-cli = python.pkgs.buildPythonApplication rec {
     pname = "google-colab-cli";
-    version = "0.6.0";
+    version = "0.7.5";
     pyproject = true;
     nativeBuildInputs = [ python.pkgs.hatchling python.pkgs.hatch-vcs ];
     dontCheckRuntimeDeps = true;
     src = pkgs.fetchPypi {
       pname = "google_colab_cli";
       inherit version;
-      hash = "sha256-mK3C4gDfQhoM27TYW8cF7U5djBaJK1hJkt3+rHRiWso=";
+      hash = "sha256-3OPuYdlXsalVEzoHH2JicHltT4KCmcUTGDsq03TtsnU=";
     };
     propagatedBuildInputs = [
       python.pkgs.click

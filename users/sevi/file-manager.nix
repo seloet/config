@@ -33,6 +33,10 @@
       ];
       open.prepend_rules = [
         {
+          url = "*.ipynb";
+          use = "nvim";
+        }
+        {
           url = "*.md";
           use = "glow";
         }

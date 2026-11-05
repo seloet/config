@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   networking.networkmanager.enable = true;
@@ -17,6 +17,12 @@
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-  services.printing.enable = true;
-
+  services.printing = {
+    enable = true;
+    drivers = [ (pkgs.hplipWithPlugin.override { withQt5 = false; }) ];
+  };
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
 }

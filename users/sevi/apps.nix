@@ -11,6 +11,21 @@ let
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}."beellama-${config.workstation.llmBackend}";
   mach1Llama =
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}."mach1-${config.workstation.mach1Backend}";
+  llmAgentPkgs = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+  upstreamCodex = llmAgentPkgs.codex;
+  codex = pkgs.runCommand "codex-${upstreamCodex.version}-packaged" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
+    mkdir -p "$out/libexec/codex/"{bin,codex-path,codex-resources} "$out/bin"
+    cp -a ${upstreamCodex}/libexec/codex/bin/. "$out/libexec/codex/bin/"
+    install -m 755 ${pkgs.ripgrep}/bin/rg "$out/libexec/codex/codex-path/rg"
+    install -m 755 ${pkgs.bubblewrap}/bin/bwrap "$out/libexec/codex/codex-resources/bwrap"
+    cp ${upstreamCodex}/libexec/codex/codex-package.json "$out/libexec/codex/"
+
+    makeWrapper "$out/libexec/codex/bin/codex" "$out/bin/codex" \
+      --prefix PATH : ${lib.makeBinPath [ pkgs.bubblewrap ]}
+    ln -s ../libexec/codex/bin/codex-code-mode-host "$out/bin/codex-code-mode-host"
+    ln -s ../libexec/codex/bin/logs_client "$out/bin/logs_client"
+    ln -s ${upstreamCodex}/share "$out/share"
+  '';
 in
 {
   home.packages =
@@ -26,6 +41,7 @@ in
       jq
       gh
       codex
+      llmAgentPkgs.antigravity-cli
       rclone
       llama-cpp
       beeLlama
@@ -37,7 +53,7 @@ in
       vlc
       cliamp
       kaggle
-      inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.omp
+      llmAgentPkgs.omp
       bk
       thunderbird
       protonmail-bridge-gui
@@ -45,6 +61,7 @@ in
       slurp
       wl-clipboard
       smassh
+      libreoffice-qt
     ])
     ++ lib.optionals config.workstation.portableWidgets [ pkgs.tuxedo ];
 

@@ -32,12 +32,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     herdr = {
-      url = "github:ogulcancelik/herdr/v0.7.5";
+      url = "github:herdrdev/herdr/v0.9.5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     beellama = {
       url = "github:Anbeeld/beellama.cpp";

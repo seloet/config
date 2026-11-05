@@ -48,6 +48,7 @@ in
     systemd.enable = true;
     configType = "lua";
 
+    # Keep KeePassXC on demand; login must not trigger database unlock prompts.
     extraConfig = ''
       local mod = "SUPER"
 
@@ -59,7 +60,6 @@ in
       hl.on("hyprland.start", function()
         hl.exec_cmd("noctalia")
         hl.exec_cmd("kdeconnectd")
-        hl.exec_cmd("keepassxc")
       end)
 
       hl.config({
@@ -100,7 +100,7 @@ in
         center = true,
       })
 
-      hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
+      hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("foot"))
       hl.bind(mod .. " + V", hl.dsp.exec_cmd("ghostty -e nvim"))
       hl.bind(mod .. " + B", hl.dsp.exec_cmd("brave"))
       hl.bind(mod .. " + SHIFT + F", hl.dsp.exec_cmd("ghostty -e yazi"))
