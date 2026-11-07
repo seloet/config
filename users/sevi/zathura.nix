@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   colors = config.lib.stylix.colors;
@@ -8,6 +8,7 @@ in
 {
   programs.zathura = {
     enable = true;
+    package = pkgs.zathura;
     options = {
       adjust-open = "best-fit";
 

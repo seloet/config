@@ -8,6 +8,13 @@
 
   networking.hostName = "desktop";
 
+  swapDevices = [
+    {
+      device = "/swapfile_extra";
+      size = 16384;
+    }
+  ];
+
   profiles.workstation = {
     enable = true;
     user = "sevi";
