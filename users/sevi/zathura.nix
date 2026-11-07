@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   colors = config.lib.stylix.colors;
@@ -8,14 +8,6 @@ in
 {
   programs.zathura = {
     enable = true;
-    package =
-      (pkgs.zathuraPkgs.overrideScope (
-        _final: prev: {
-          zathura_core = prev.zathura_core.overrideAttrs (old: {
-            patches = (old.patches or [ ]) ++ [ ./zathura-fit-on-reopen.patch ];
-          });
-        }
-      )).zathuraWrapper;
     options = {
       adjust-open = "best-fit";
 
