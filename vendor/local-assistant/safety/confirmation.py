@@ -47,5 +47,4 @@ def decide(
         return "execute"
     if tier == MEDIUM:
         return "confirm_if_ambiguous" if ambiguous else "execute"
-    # HIGH
     return "require_explicit_confirmation"

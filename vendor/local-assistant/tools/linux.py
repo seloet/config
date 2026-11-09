@@ -73,7 +73,6 @@ def search_files(arguments: dict) -> ToolResult:
     return ok(f"Found {len(hits)} matching files", files=hits)
 
 
-# playerctl subcommand for each action; None/default maps to toggle (play-pause).
 _PLAYERCTL_CMD = {
     "play": "play",
     "pause": "pause",

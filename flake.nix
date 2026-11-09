@@ -84,42 +84,53 @@
             ln -s "$executable" "$out/bin/mach1-''${name#llama-}"
           done
         '';
-      mkNixosHost =
-        { modules }:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            home-manager.nixosModules.home-manager
-            stylix.nixosModules.stylix
-          ]
-          ++ modules;
-        };
+      baseSystem = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
+          ./modules/core/base.nix
+          ./modules/core/memory-and-swap.nix
+          ./modules/core/boot-choreography.nix
+          ./modules/desktop/hyprland.nix
+          ./modules/themes/stylix.nix
+          {
+            seloet.memory.enable = true;
+            seloet.bootChoreography.enable = true;
+          }
+        ];
+      };
     in
     {
-      lib.mkNixosHost = mkNixosHost;
-
       packages.${system} = {
         beellama-cpu = mkBeeLlama "cpu";
         beellama-cuda = mkBeeLlama "cuda";
         mach1-cuda = mkMach1 "cuda";
         mach1-vulkan = mkMach1 "vulkan";
+        installer-iso = self.nixosConfigurations.installer.config.system.build.isoImage;
       };
 
       nixosConfigurations = {
-        laptop = mkNixosHost {
+        laptop = baseSystem.extendModules {
           modules = [ ./hosts/laptop/configuration.nix ];
         };
 
-        desktop = mkNixosHost {
+        desktop = baseSystem.extendModules {
           modules = [ ./hosts/desktop/configuration.nix ];
         };
 
-        surface = mkNixosHost {
+        surface = baseSystem.extendModules {
           modules = [
             ./hosts/surface/configuration.nix
             inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
           ];
+        };
+
+        installer = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/installer/configuration.nix ];
         };
       };
     };

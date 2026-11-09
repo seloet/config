@@ -52,9 +52,6 @@ from .result import ParseResult
 GRAMMAR_CONFIDENCE = 0.85
 
 
-# --------------------------------------------------------------------------- #
-# Grammar building blocks
-# --------------------------------------------------------------------------- #
 _KW_VERB_OPEN = one_of("open opened launch launched start run show", caseless=True)
 _KW_VERB_VOL = one_of("set turn", caseless=True)
 _KW_VERB_NOTE = one_of("create make add take note", caseless=True)
@@ -70,10 +67,8 @@ _CONJ = (
     | CaselessKeyword("after that")
     | CaselessKeyword("afterwards")
 )
-# Anything that terminates a clause: a conjunction or end-of-input.
 _CLAUSE_STOP = _CONJ | StringEnd()
 
-# A bare word (app names, search terms, note bodies, etc.).
 _WORD = Word(alphanums + "'-_.")
 
 
@@ -82,9 +77,6 @@ def _skip_clause() -> SkipTo:
     return SkipTo(_CLAUSE_STOP, greedy=False)
 
 
-# --------------------------------------------------------------------------- #
-# Intent grammars
-# --------------------------------------------------------------------------- #
 def _build_open() -> ParserElement:
     kw = _KW_VERB_OPEN.copy()
     expr = kw + _skip_clause()("app")
@@ -94,7 +86,6 @@ def _build_open() -> ParserElement:
 
 def _act_open(toks: ParseResults) -> dict:
     app_raw = toks["app"].strip()
-    # strip a leading article the regex layer also drops
     app_raw = re.sub(r"^(the|a|an)\s+", "", app_raw, flags=re.IGNORECASE).strip()
     app, n = apply_asr_aliases(app_raw)
     canon = _canonical_app(app)
@@ -145,7 +136,6 @@ def _volume_value(raw: str) -> int | None:
     while prev != raw:
         prev = raw
         raw = re.sub(r"^(set|turn|to|at|up to|down to)\s+", "", raw, flags=re.IGNORECASE)
-    # strip a trailing verb ("volume to fifty set" -> "volume to fifty")
     raw = re.sub(r"\s+(set|turn)$", "", raw, flags=re.IGNORECASE)
     raw = re.sub(r"\b(per\s*cent|percent|per)\b", " ", raw, flags=re.IGNORECASE)
     raw = re.sub(r"\s+", " ", raw).strip()
@@ -180,8 +170,6 @@ def _build_time() -> ParserElement:
 
 
 def _build_note() -> ParserElement:
-    # "make a note saying ..." / "create a note ..." / "add a note ..." /
-    # "note that i should ..." / bare "note ...".
     verb_form = _KW_VERB_NOTE.copy() + Suppress(CaselessKeyword("a"))[0, 1] + CaselessKeyword("note")
     note_form = CaselessKeyword("note")
     expr = (
@@ -228,9 +216,6 @@ def _build_lock() -> ParserElement:
 
 
 def _build_media() -> ParserElement:
-    # Forms:
-    #   "<action> (the) (music|media|song|track)"  e.g. "play the music"
-    #   "(media|music|playback) <action>"          e.g. "media pause"
     obj = one_of("music media song track", caseless=True)
     action_kw = _KW_VERB_MEDIA.copy()
     form1 = action_kw("action") + Suppress(CaselessKeyword("the"))[0, 1] + obj[0, 1]
@@ -257,9 +242,6 @@ def _act_media(toks: ParseResults) -> dict:
     }
 
 
-# --------------------------------------------------------------------------- #
-# Full grammar
-# --------------------------------------------------------------------------- #
 # A single intent (used to parse one clause). No conjunction handling here --
 # multi-clause commands are split on conjunctions in :func:`parse_grammar`
 # before each clause is parsed independently, which avoids a greedy intent
@@ -289,9 +271,6 @@ def _split_clauses(norm: str) -> list[str]:
     return [p.strip() for p in parts if p and p.strip()]
 
 
-# --------------------------------------------------------------------------- #
-# Public API
-# --------------------------------------------------------------------------- #
 def parse_grammar(text: str) -> ParseResult | None:
     """Parse ``text`` with the grammar.
 

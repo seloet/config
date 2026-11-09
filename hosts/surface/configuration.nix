@@ -3,15 +3,15 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/core/base.nix
-    ../../modules/desktop/hyprland.nix
-    ../../modules/themes/stylix.nix
   ];
 
   modules.desktop.hyprland.enable = true;
 
   networking.hostName = "surface";
   networking.networkmanager.enable = true;
+
+  seloet.bootChoreography.gpuDriver = "i915";
+  seloet.memory.swapfilePath = null;
 
   boot.loader.systemd-boot.configurationLimit = 5;
 
@@ -41,14 +41,6 @@
   ];
 
   hardware.bluetooth.enable = true;
-
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 50;
-  };
-
-  systemd.oomd.enable = true;
 
   services.fstrim.enable = true;
   services.thermald.enable = true;

@@ -12,8 +12,6 @@
     console.keyMap = lib.mkDefault "sg";
 
     boot = {
-      consoleLogLevel = 0;
-      kernelParams = [ "quiet" "systemd.show_status=false" ];
       loader = {
         systemd-boot.enable = true;
         timeout = 1;

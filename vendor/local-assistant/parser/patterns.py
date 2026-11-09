@@ -23,7 +23,6 @@ LOCK_RE = re.compile(r"^(?:lock|secure)\s+(?:the\s+)?(?:screen|session|computer)
 
 
 def _canonical_app(app: str) -> str | None:
-    # returns canonical registry id (e.g. 'vscode') or None if unknown
     return canonicalize(app)
 
 

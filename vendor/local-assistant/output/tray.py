@@ -93,7 +93,6 @@ class TrayApp:
         self._thread: threading.Thread | None = None
         self._available = _HAVE_TRAY and self._display_present()
 
-    # ------------------------------------------------------------------ #
     @staticmethod
     def _display_present() -> bool:
         return bool(os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY"))
@@ -103,9 +102,6 @@ class TrayApp:
         """True when a real tray can be shown (display + libs present)."""
         return self._available
 
-    # ------------------------------------------------------------------ #
-    # Control hooks (also called programmatically in tests)
-    # ------------------------------------------------------------------ #
     def _is_listening(self) -> bool:
         if self._get_listening is not None:
             return bool(self._get_listening())
@@ -137,7 +133,6 @@ class TrayApp:
             except Exception:  # pragma: no cover
                 pass
 
-    # ------------------------------------------------------------------ #
     def _menu(self) -> Any:
         pystray = _load_pystray()
         items = [
@@ -160,7 +155,6 @@ class TrayApp:
             except Exception:  # pragma: no cover
                 pass
 
-    # ------------------------------------------------------------------ #
     def _build_icon(self) -> Any:
         """Build a pystray.Icon, degrading gracefully if the display is gone."""
         try:

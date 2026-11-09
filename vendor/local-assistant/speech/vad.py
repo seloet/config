@@ -54,7 +54,7 @@ class EndpointDetector:
             if not self._in_speech:
                 self._pending += 1
                 if self.min_speech_frames and self._pending < self.min_speech_frames:
-                    return events  # still debouncing
+                    return events
                 self._in_speech = True
                 self._speech = self._pending
                 events.append("speech_start")

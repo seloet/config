@@ -43,7 +43,6 @@ class Microphone:
         import sounddevice as sd  # lazy import — requires libportaudio at runtime
 
         def _callback(indata, frames, time_info, status):  # noqa: ANN001
-            # indata is a (frames, channels) float32 ndarray; take mono channel 0.
             chunk = [float(x) for x in indata[:, 0]]
             self._queue.put(chunk)
 
@@ -94,7 +93,6 @@ def read_wav(path: str, sample_rate: int = DEFAULT_SAMPLE_RATE) -> list[float]:
         n_frames = wf.getnframes()
         raw = wf.readframes(n_frames)
 
-    # Decode PCM/float frames into a mono float list at the file's own rate.
     if wf_sampwidth == 1:
         # 8-bit PCM is unsigned, centered at 128.
         a = array.array("B")
@@ -126,14 +124,12 @@ def read_wav(path: str, sample_rate: int = DEFAULT_SAMPLE_RATE) -> list[float]:
     else:
         raise ValueError(f"Unsupported sample width: {wf_sampwidth} bytes")
 
-    # Downmix to mono if needed.
     if wf_channels > 1:
         mono: list[float] = []
         for i in range(0, len(samples) - wf_channels + 1, wf_channels):
             mono.append(sum(samples[i : i + wf_channels]) / wf_channels)
         samples = mono
 
-    # Resample to the requested rate if the file's rate differs.
     if wf_framerate != sample_rate and len(samples) > 1:
         ratio = wf_framerate / sample_rate
         out_len = int(len(samples) / ratio)

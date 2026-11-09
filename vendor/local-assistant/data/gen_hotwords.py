@@ -46,7 +46,6 @@ def _app_words() -> list[str]:
     for canon, entry in reg.items():
         words.add(canon)
         words.update(entry.get("aliases", []))
-        # also keep the OS command token (e.g. "code", "ghostty", "firefox")
         for cmd in entry.get("linux", []):
             words.add(cmd)
     return sorted(words)
@@ -54,7 +53,6 @@ def _app_words() -> list[str]:
 
 def build_hotwords() -> list[str]:
     words = _app_words() + COMMAND_VOCAB
-    # de-dup, lowercase, drop empties
     seen: set[str] = set()
     out: list[str] = []
     for w in words:

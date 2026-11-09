@@ -8,6 +8,9 @@
 
   networking.hostName = "laptop";
 
+  seloet.bootChoreography.gpuDriver = "amdgpu";
+  seloet.memory.swapfilePath = null;
+
   boot.crashDump = {
     enable = true;
     reservedMemory = "256M";

@@ -48,7 +48,6 @@ class StreamingASR:
         self.recognizer = sherpa_onnx.OnlineRecognizer.from_transducer(**kwargs)
         self.stream = self.recognizer.create_stream()
         self._sample_rate = asr_cfg.get("sample_rate", 16000)
-        # Optional Phase 9 post-ASR error corrector (None = disabled).
         self._corrector = asr_cfg.get("_corrector")
 
     def accept(self, samples: list[float]) -> None:

@@ -102,7 +102,7 @@ in
 
       hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("foot"))
       hl.bind(mod .. " + V", hl.dsp.exec_cmd("ghostty -e nvim"))
-      hl.bind(mod .. " + B", hl.dsp.exec_cmd("brave"))
+      hl.bind(mod .. " + B", hl.dsp.exec_cmd("helium"))
       hl.bind(mod .. " + SHIFT + F", hl.dsp.exec_cmd("ghostty -e yazi"))
       hl.bind(mod .. " + SHIFT + W", hl.dsp.exec_cmd("wallpaper-cycle --next"))
       hl.bind(mod .. " + W", hl.dsp.window.close())

@@ -42,7 +42,6 @@ VECTOR_DIM = 1024
 K = 3
 ADOPT_THRESHOLD = 0.45  # cosine score below this -> stay unmatched
 
-# Canonical tools present in the corpus / registry.
 TOOLS = [
     "open_application", "set_volume", "get_time", "create_note",
     "search_files", "play_pause_media", "lock_screen",
@@ -88,7 +87,6 @@ def _strip_keywords(text: str, tool: str) -> str:
     residual = text.lower()
     for pat in _CMD_KEYWORDS.get(tool, []):
         residual = re.sub(pat, " ", residual, flags=re.IGNORECASE)
-    # also strip leading filler verbs already handled; collapse whitespace
     residual = re.sub(r"\s+", " ", residual).strip()
     # drop a lone trailing 'c' from a clipped "per cent"
     residual = re.sub(r"\bc\b\s*$", "", residual).strip()
@@ -160,7 +158,6 @@ class IntentClassifier:
         top = np.argpartition(-sims, k - 1)[:k]
         top = top[np.argsort(-sims[top])]
         pred_idx = int(self.labels[top[0]])
-        # score = mean cosine over the k-NN that share the predicted tool
         agree = [i for i in top if self.labels[i] == pred_idx]
         score = float(np.mean(sims[agree]))
         return self.tools[pred_idx], score
@@ -275,7 +272,6 @@ def load_model(path: Path = MODEL_PATH) -> IntentClassifier:
     return clf
 
 
-# Module-level singleton (trained/lazy). Tests may monkeypatch it.
 _model: IntentClassifier | None = None
 
 

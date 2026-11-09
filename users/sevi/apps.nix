@@ -7,6 +7,20 @@
 }:
 
 let
+  anki = pkgs.anki.overrideAttrs (old: {
+    nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.pkg-config ];
+    buildInputs = old.buildInputs ++ [ pkgs.zstd ];
+    env = old.env // {
+      # nixpkgs' offline wheel list omits hatchling's tomlkit dependency.
+      UV_FIND_LINKS = pkgs.symlinkJoin {
+        name = "anki-uv-wheels";
+        paths = [
+          old.env.UV_FIND_LINKS
+          pkgs.anki.python.pkgs.tomlkit.dist
+        ];
+      };
+    };
+  });
   beeLlama =
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}."beellama-${config.workstation.llmBackend}";
   mach1Llama =
@@ -31,7 +45,6 @@ in
   home.packages =
     (with pkgs; [
       anki
-      brave
       zed-editor
       glow
       fsel

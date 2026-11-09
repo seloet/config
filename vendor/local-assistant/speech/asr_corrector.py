@@ -107,10 +107,6 @@ def apply_pairs(text: str, pairs: dict[str, str]) -> tuple[str, int]:
     return corrected, applied
 
 
-# --------------------------------------------------------------------------- #
-# Trainable artifact: persist learned pairs so the pipeline can load them
-# without re-reading the (potentially large) failure log on every startup.
-# --------------------------------------------------------------------------- #
 def write_pairs(path: Path, pairs: dict[str, str]) -> None:
     path.write_text(json.dumps(pairs, indent=2, sort_keys=True) + "\n")
 

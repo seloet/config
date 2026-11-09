@@ -103,24 +103,21 @@ class Assistant:
         self.notify_desktop = notify_desktop
         self._config: dict[str, Any] | None = None
 
-        # Native components — populated lazily by _build_pipeline / listen.
         self._kws: Any = None
         self._vad: Any = None
         self._asr: Any = None
         self._mic: Any = None
         self._notifier = notifier
         self._tray: Any = None
-        self._listening = True  # tray/pause control state
+        self._listening = True
         self._stop_event = threading.Event()
 
         # Self-hearing guard (plan §29): while the chime / TTS plays we pause
         # KWS/ASR so the assistant does not trigger on its own output.
         self._self_hearing = False
 
-        # Phase 9 post-ASR error corrector (None until the pipeline is built).
         self._corrector: Any = None
 
-        # Built lazily from config; cached for the session lifetime.
         self._tiers: dict[str, str] | None = None
 
         # Pending commands are intentionally session-only.  A single exact
@@ -130,9 +127,6 @@ class Assistant:
             clock=clock,
         )
 
-    # ------------------------------------------------------------------ #
-    # Configuration / model accessors
-    # ------------------------------------------------------------------ #
     def _load_config(self) -> dict[str, Any]:
         if self._config is None:
             from speech.model_config import load_config
@@ -203,9 +197,6 @@ class Assistant:
         """
         self._stop_event.set()
 
-    # ------------------------------------------------------------------ #
-    # Lazy native model construction
-    # ------------------------------------------------------------------ #
     def _build_pipeline(self) -> None:
         """Construct KWS / VAD / ASR once (requires the native lib + models)."""
         if self._asr is not None and self._vad is not None:
@@ -225,9 +216,6 @@ class Assistant:
         self._corrector = corrector
         self._asr = StreamingASR(asr_cfg=asr_cfg)
 
-    # ------------------------------------------------------------------ #
-    # Headless command routing (parser -> safety -> dispatch)
-    # ------------------------------------------------------------------ #
     @staticmethod
     def _pending_outcome(
         pending: PendingAction,
@@ -370,10 +358,6 @@ class Assistant:
                     result = r2
         tiers = self._load_tiers()
 
-        # Phase 8: multi-clause command (e.g. "open firefox and play music").
-        # The grammar returns one ParseResult whose ``subcommands`` list holds
-        # each per-intent result. Fan out: validate + dispatch each subcommand
-        # independently, returning a combined result.
         if getattr(result, "subcommands", None):
             sub_out: list[dict[str, Any]] = []
             any_executed = False
@@ -497,9 +481,6 @@ class Assistant:
         finally:
             self._self_hearing = False
 
-    # ------------------------------------------------------------------ #
-    # Capture path (VAD + ASR) — used with synthetic audio in tests
-    # ------------------------------------------------------------------ #
     def run_capture(self, utterance_samples: list[float]) -> str:
         """Feed samples through VAD + ASR and return the transcript.
 
@@ -542,9 +523,6 @@ class Assistant:
 
         return self._asr.finalize().strip()
 
-    # ------------------------------------------------------------------ #
-    # Always-on listening loop
-    # ------------------------------------------------------------------ #
     def start(self) -> None:
         """Build models and (if mic mode) open the microphone. Idempotent."""
         self._build_pipeline()
@@ -556,7 +534,6 @@ class Assistant:
 
     def _on_wake(self, label: str = "wake") -> None:
         """Play the activation chime and set the self-hearing guard."""
-        # Self-hearing guard: pause KWS/ASR while our own audio plays.
         self._self_hearing = True
         self.notifier.activate(label)
         self._self_hearing = False
@@ -580,7 +557,6 @@ class Assistant:
                     continue
 
                 if not self._listening or self._self_hearing:
-                    # While our own chime/TTS plays, ignore inbound audio.
                     continue
 
                 self._kws.accept(samples)
@@ -588,7 +564,6 @@ class Assistant:
                 if wake is None:
                     continue
 
-                # Wake accepted -> chime + capture mode.
                 self._on_wake("wake")
                 # The microphone callback remains active during the synchronous
                 # chime. Drop those frames so the assistant cannot hear itself.
@@ -663,9 +638,6 @@ class Assistant:
         return None
 
 
-# ---------------------------------------------------------------------- #
-# CLI
-# ---------------------------------------------------------------------- #
 def _do_single_tool(tool: str, args_json: str) -> int:
     """Phase-1 behaviour: run one tool, print JSON, exit 0/1."""
     res = call_tool(tool, json.loads(args_json))
@@ -732,7 +704,6 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--recent-n", type=int, default=10)
     a = p.parse_args(argv)
 
-    # Phase-1 single-tool mode takes precedence.
     if a.tool:
         return _do_single_tool(a.tool, a.args)
 
@@ -768,7 +739,6 @@ def main(argv: list[str] | None = None) -> int:
         assistant.listen()
         return 0
 
-    # Default headless: nothing to do but stay importable / runnable.
     print("LocalAssistant ready (headless). Use --mic to listen, --self-test to probe, "
           "--tool to run a single tool.")
     return 0

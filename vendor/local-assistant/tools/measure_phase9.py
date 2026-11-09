@@ -56,9 +56,7 @@ def _patch_config_in_personalize(cfg: dict) -> None:
 def step1_pristine() -> None:
     cfg = _config(no_hotwords=True, corrector_enabled=False)
     _patch_config_in_personalize(cfg)
-    # personalize writes its failure log to logs/command_failures.jsonl
     personalize_run(quiet=True)
-    # snapshot the pristine (uncorrected) failure log
     src = LOG / "command_failures.jsonl"
     PRISTINE.write_text(src.read_text())
     pairs = learn_pairs(PRISTINE, min_count=2)

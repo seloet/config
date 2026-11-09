@@ -66,8 +66,6 @@
     fsType = "ext4";
   };
 
-  swapDevices = [ ];
-
   hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
   hardware.enableRedistributableFirmware = true;
   services.xserver.videoDrivers = [ "nvidia" ];

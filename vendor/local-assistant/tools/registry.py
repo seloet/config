@@ -10,7 +10,6 @@ from .schemas import (
     CreateNoteArgs, SearchFilesArgs, PlayPauseMediaArgs, LockScreenArgs,
 )
 
-# name -> (executor, schema)
 TOOL_REGISTRY: dict[str, tuple[Any, type]] = {
     "open_application": (open_application, OpenApplicationArgs),
     "set_volume":       (set_volume, SetVolumeArgs),

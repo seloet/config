@@ -15,7 +15,6 @@ from parser.result import ParseResult
 from .confirmation import decide
 from .risk import tier_of
 
-# Decision vocabulary (mirrors safety.confirmation.decide + unsupported).
 REJECT = "reject"
 CLARIFY = "clarify"
 EXECUTE = "execute"
@@ -25,7 +24,7 @@ REQUIRE_EXPLICIT_CONFIRMATION = "require_explicit_confirmation"
 
 @dataclass
 class SafetyDecision:
-    action: str  # one of the constants above
+    action: str
     tool_name: str | None
     confidence: float
     tier: str | None

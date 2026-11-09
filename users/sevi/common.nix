@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./browser.nix
     ./terminal.nix
     ./file-manager.nix
     ./zathura.nix

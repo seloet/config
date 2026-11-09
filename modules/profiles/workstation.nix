@@ -11,10 +11,7 @@ let
 in
 {
   imports = [
-    ../core/base.nix
     ../core/services.nix
-    ../desktop/hyprland.nix
-    ../themes/stylix.nix
     ../google-colab-cli.nix
   ];
 
@@ -117,11 +114,6 @@ in
     };
 
     virtualisation.docker.enableOnBoot = false;
-    zramSwap = {
-      enable = true;
-      algorithm = "zstd";
-      memoryPercent = 25;
-    };
 
     services.power-profiles-daemon.enable = cfg.portableWidgets;
     services.upower.enable = cfg.portableWidgets;

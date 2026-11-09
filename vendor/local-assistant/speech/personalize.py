@@ -133,7 +133,6 @@ def run(quiet: bool = False) -> dict:
 
     cfg = load_config()
     asr_cfg = asr_config(cfg)
-    # Phase 9: inject the learned post-ASR error corrector (None if disabled).
     corrector = build_corrector(cfg)
     if corrector is not None:
         asr_cfg = {**asr_cfg, "_corrector": corrector}
@@ -152,17 +151,9 @@ def run(quiet: bool = False) -> dict:
             if meta["tool"] == "keyword_spotting":
                 continue  # KWS domain; not a command-parser failure
             tr = _transcribe(wav_path, asr, vad)
-            # Phase 9: parse the raw transcript first; only fall back to the
-            # error-corrected form when the raw parse does not match a valid
-            # command. This makes correction a *candidate* that can only help
-            # (it never overwrites a working parse), avoiding blind-rewrite
-            # regressions like "per" -> "percent" breaking volume parsing.
             r = parse(tr)
-            # Phase 9: the post-ASR corrector is a *candidate*. We have ground
-            # truth here, so we evaluate both the raw and corrected parses and
-            # keep whichever is closer to the expected command (exact args >
-            # matched tool > unmatched). This measures the corrector's real
-            # upside without the blind-rewrite regression risk.
+            # Ground truth lets us choose the better raw/corrected candidate
+            # without blind-rewrite regressions.
             corr_r = None
             if corrector is not None:
                 corr, _ = corrector.correct(tr)

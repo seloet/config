@@ -8,12 +8,11 @@
 
   networking.hostName = "desktop";
 
-  swapDevices = [
-    {
-      device = "/swapfile_extra";
-      size = 16384;
-    }
-  ];
+  seloet.bootChoreography.gpuDriver = "nvidia";
+  seloet.memory = {
+    swapfilePath = "/swapfile_extra";
+    swapfileSizeMb = 16384;
+  };
 
   profiles.workstation = {
     enable = true;

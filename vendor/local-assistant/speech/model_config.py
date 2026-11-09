@@ -10,7 +10,6 @@ from typing import Any
 
 import yaml
 
-# Default location: <repo>/config/speech.yaml
 _DEFAULT_PATH = Path(__file__).resolve().parent.parent / "config" / "speech.yaml"
 
 _PATH_FIELDS = {
@@ -95,6 +94,5 @@ def build_corrector(cfg: dict[str, Any]):
             p = _DEFAULT_PATH.parent.parent / p
         if p.exists():
             return ASRCorrector(load_pairs(p))
-    # Fall back to learning on the fly from the failure log.
     min_count = int(block.get("min_count", 2))
     return ASRCorrector.from_failures(min_count=min_count)

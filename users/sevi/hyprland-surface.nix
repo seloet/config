@@ -85,7 +85,7 @@
 
       bind = [
         "$mod, RETURN, exec, foot"
-        "$mod, B, exec, brave"
+        "$mod, B, exec, helium"
         "$mod, E, exec, ghostty -e yazi"
         "$mod, M, exec, ghostty -e micro"
         "$mod, Z, exec, zathura"
