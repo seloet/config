@@ -92,16 +92,8 @@ in
 
     modules.desktop.hyprland.enable = true;
     boot.kernelPackages = pkgs.linuxPackages_zen;
-    nixpkgs.config = {
-      allowUnfree = true;
-      cudaSupport = cfg.llmBackend == "cuda";
-    };
 
     nix = {
-      settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
       optimise = {
         automatic = true;
         dates = [ "weekly" ];

@@ -16,7 +16,10 @@ sudo nixos-rebuild boot --flake .#desktop
 
 Use the configuration matching the target machine (`desktop`, `laptop`, or
 `surface`), then reboot. Evaluation and dry builds do not prove packages build.
-The desktop includes resource-intensive CUDA/source builds.
+ONNX Runtime uses the standard CPU derivation; Thunderbird uses upstream binaries.
+CUDA is scoped to desktop LLM packages, which may still require large local builds.
+Shared build limits and caches live in `modules/core/nix.nix` and take effect after
+activation.
 
 - Replace the Surface's placeholder filesystem and swap UUIDs before deployment.
 - Keep a previous boot generation. If login fails, use Ctrl+Alt+F3 or boot it.

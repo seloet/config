@@ -91,6 +91,7 @@
           home-manager.nixosModules.home-manager
           stylix.nixosModules.stylix
           ./modules/core/base.nix
+          ./modules/core/nix.nix
           ./modules/core/memory-and-swap.nix
           ./modules/core/boot-choreography.nix
           ./modules/desktop/hyprland.nix
@@ -130,7 +131,10 @@
         installer = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
-          modules = [ ./hosts/installer/configuration.nix ];
+          modules = [
+            ./modules/core/nix.nix
+            ./hosts/installer/configuration.nix
+          ];
         };
       };
     };

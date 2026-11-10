@@ -56,7 +56,7 @@ in
       codex
       llmAgentPkgs.antigravity-cli
       rclone
-      llama-cpp
+      (llama-cpp.override { cudaSupport = config.workstation.llmBackend == "cuda"; })
       beeLlama
       mach1Llama
       python3Packages.huggingface-hub
@@ -68,7 +68,7 @@ in
       kaggle
       llmAgentPkgs.omp
       bk
-      thunderbird
+      thunderbird-bin
       protonmail-bridge-gui
       grim
       slurp
